@@ -341,7 +341,7 @@ border-radius: 4px;
 background-color: #fff;
 
 }
-.form_div input[type="text"],input[type="password"]
+.form_div input[type="text"],input[type="password"],textarea
 {
 width:90%;
 height:40px;
