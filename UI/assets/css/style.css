@@ -11,6 +11,7 @@ body {
     margin:0;
     -webkit-margin-before:0em;
     -webkit-margin-after:0em;
+
 }
 
 /* Header/Blog Title */
@@ -25,11 +26,11 @@ body {
   display: inline-block;
     vertical-align: top;
     margin-right: 20px;
+    font-weight:bold;
 }
 .span{
-    font-weight:bold;
     color:blue;
-    opacity:.3;
+    opacity:.6;
 }
 .img{
     display: inline-block;
@@ -44,7 +45,8 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #fff;
-  position: fixed; /* Set the navbar to fixed position */
+  
+   /* position: fixed;Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
    /* change to desired color background-color: red; */
@@ -52,14 +54,43 @@ body {
   border: 1px solid #2196F3;
 }
 .landing {
-	margin-top: 10%;
   overflow: hidden;
-  background-color: #fff;
   /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
    /* change to desired color background-color: red; */
-  display: block;
-  border: 1px solid #ccc;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    margin-top: -6px;
+    margin: auto;
+    /*background-image: : url('./assets/img/bg.jpg');*/
+}
+#landing-shadow{
+    background-image: url("./assets/img/bg.jpg");
+   width:200px;
+   height:100px;
+   background-repeat: repeat-x;
+   background-repeat: repeat-y;
+    width:xxpx;
+    height:xxpx;
+}
+.welcometext {
+	float:left;
+	width:50%;
+}
+.myform{
+width: 50%;
+margin: 0 auto;
+position: relative;
+margin-bottom:6px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+text-align: center;
+background-color: #ccc;
+float: right;
+height: 80%;
+overflow: hidden;
 }
 .topnav ul {
   padding: 0px;
@@ -120,7 +151,7 @@ body {
   background: #ddd;
   font-size: 17px;
   border: none;
-  cursor: pointer;
+
 }
 
 .topnav .search-container button:hover {
@@ -147,10 +178,9 @@ a:hover#menu-icon {
 	.header {
 
 		position: absolute;
-		content: "Stack Overflow Lite";
 
 	}
-	.img{
+/*	.img{
 
 		position: absolute;
 		display: none;
@@ -161,7 +191,7 @@ a:hover#menu-icon {
 
 		display:inline-block;
 
-	}
+	}*/
   .topnav .search-container {
     float: none;
   }
@@ -236,4 +266,169 @@ a:hover#menu-icon {
         float: none;
         width: 100%;
     }
+}
+#wrapper
+{
+ margin:0 auto;
+ padding:0px;
+ text-align:center;
+ width:995px;
+}
+#wrapper h1
+{
+ margin-top:50px;
+ font-size:45px;
+ color:#424949;
+}
+#wrapper h1 p
+{
+font-size:18px;
+}
+.form_div
+{
+width:100%px;
+margin-left:5px;
+padding:10px;
+}
+.form_div .form_label
+{
+margin:15px;
+margin-bottom:30px;
+font-size:25px;
+font-weight:bold;
+color:#000;
+text-decoration:none;
+border: 1px solid #000;
+border-radius: 4px;
+background-color: #fff;
+
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:90%;
+height:40px;
+border-radius:2px;
+padding-left:5px;
+padding: 14px;
+border: 1px solid #2196F3;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 6px;
+background: lightyellow;
+color: blue;
+font-size: 15px;
+
+}
+.form_div input[type="submit"]
+{
+width:25%px;
+height:40px;
+border:1px solid #fff;
+border-radius:4px;
+font-size:16px;
+background-color:#2196f3;
+border-bottom:2px solid #2196f3;
+color:white;
+font-weight:bold;
+ padding: 12px;
+ box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 2px #999;
+  position:right;
+}
+.form_div input[type="submit"]:hover {
+	background-color: #fff;
+	color:#2196f3;
+}
+
+.form_div input[type="submit"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+@media only screen and (min-width:700px) and (max-width:995px)
+{
+#wrapper
+{
+width:100%;
+}
+#wrapper h1
+{
+font-size:30px;
+}
+.form_div
+{
+width:50%;
+margin-left:25%;
+padding-left:0px;
+padding-right:0px;
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:80%;
+}
+.form_div textarea
+{
+width:80%;
+}
+.form_div input[type="submit"]
+{
+width:50%;
+}
+}
+@media only screen and (min-width:400px) and (max-width:699px)
+{
+#wrapper
+{
+width:100%;
+}
+#wrapper h1
+{
+font-size:30px;
+}
+.form_div
+{
+width:80%;
+margin-left:20%;
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:80%;
+}
+.form_div input[type="submit"]
+{
+width:50%;
+}
+}
+@media only screen and (min-width:100px) and (max-width:399px)
+{
+#wrapper
+{
+width:100%;
+}
+#wrapper h1
+{
+font-size:25px;
+}
+.form_div
+{
+width:90%;
+margin-left:5%;
+padding-left:0px;
+padding-right:0px;
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:80%;
+}
+.form_div input[type="submit"]
+{
+width:80%;
+}
 }
