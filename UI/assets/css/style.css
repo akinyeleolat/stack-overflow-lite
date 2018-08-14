@@ -94,6 +94,21 @@ float: right;
 height: 80%;
 overflow: hidden;
 }
+.pageform{
+margin: 0 auto;
+position: relative;
+margin-bottom:6px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+text-align: center;
+background-color: #ccc;
+height: 80%;
+overflow: hidden;
+float:left;
+width:80%;
+margin-left: 10%
+}
 .topnav ul {
   padding: 0px;
   margin: 0px;
