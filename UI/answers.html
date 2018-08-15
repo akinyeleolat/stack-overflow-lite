@@ -43,37 +43,65 @@
     </div>
     <div class="card">
     	<div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Pygame in Childfile not defining in python</a></p>
-      <p id="tag">python pygame python-import</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">MySQL get distinct values from arbitrarily long arrays of strings across rows</a></p>
-      <p id="tag">mysql arrays json mysql-5.7</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-
+      <p id="answertitle"><a href="answers.html">Android Google Maven repository not found</a></p>
       
+      <p id="answerstxt">I just joined stackoverflow for this question. I've been doing a lot of research and I just can't seem to find the solution.
+
+I have a main file and a function file (because I need to use the function again). In that function file I use a module called Pygame, which I also use in the main file. Though I imported the file in both scripts: the main file seems to recognize however the function file gives me: builtins.NameError: name 'pygame' is not defined
+
+I've seen that people use 'if __name__ = "__main__"'. Could this be the used to solve this problem?
+
+I'm completely stuck on this one. Is it even possible? I am using python version 2.7.15. I would call myself a beginner, though I have some experience already. Sorry for any inconvenience, I hope I can notify you on any information needed. Thanks</p>
+<p id="votes">20 votes</p>
+      <p id="answers">10 answers</p>
+<p id="tag">android cordova google-play-services</p>
+<p id="response">
+<b><u><i>Austin Reyes:</i></u></b> 
+In modern versions of MySQL (>= 8.0.4) the query would be relatively simple:
+
+SELECT
+  GROUP_CONCAT(
+    DISTINCT JSON_QUOTE(`der`.`names`)
+  ) `names`
+FROM
+  `my_table`,
+  JSON_TABLE(`my_table`.`json_data`,
+    '$[*]' COLUMNS(
+      `names` VARCHAR(10) PATH '$.name'
+    )
+  ) `der`
+ORDER BY
+  `names`;
+See db-fiddle.
+
+However, in older versions, it's not that simple, one option may be to use a temporary table and a prepared statement:
+
+SET @`ddl` := CONCAT('INSERT INTO `my_table` VALUES ',
+  (SELECT
+    GROUP_CONCAT(
+      REPLACE(
+        REPLACE(
+          REPLACE(
+            `json_data` -> '$**.name',
+          '[', '('),
+        ']', ')'),
+      ',', '),(')
+    )
+  FROM
+    `my_table`
+  )
+); </p>
+<p id="tag"><b><i>Austin Reyes</i></b></p>
+      <div class="pageform" >
+<div class="form_div">
+<form method="post">
+  <h3><i class="fa fa-reply" aria-hidden="true"></i>Post Your Answer</h3>
+<p><textarea placeholder="Detail"></textarea></p>
+<p><input type="submit" value="Post Your Answer"></p> 
+</form>
+</div>  
+</div>
+</div>
     </div>
   </div>
   <div class="rightcolumn">
@@ -100,8 +128,6 @@
     </div>
   </div>
 </div>
-
-
 <footer class="footer">
   <img  src="./assets/img/Stack.png"  hspace="0" vspace="0"><font class="header">	
   <span class="span">Developed By</span> Akinyele Oluwatosin A | 
