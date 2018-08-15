@@ -65,12 +65,13 @@ body {
     margin: auto;
     /*background-image: : url('./assets/img/bg.jpg');*/
 }
-#landing-shadow{
-    background-image: url("./assets/img/bg.jpg");
-   width:200px;
-   height:100px;
-   background-repeat: repeat-x;
-   background-repeat: repeat-y;
+#landing-bg{
+  background-image: url("assets/img/bg.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 .welcometext {
 	float:left;
@@ -129,7 +130,7 @@ margin-left: 10%
   margin-bottom: 6px;
   display: inline-block;
     vertical-align: top;
-    margin-right: 20px;        /* if you want it to take the full height of the bar */
+    margin-right: 10px;        /* if you want it to take the full height of the bar */
 
 }
 
@@ -236,8 +237,9 @@ a:hover#menu-icon {
 .rightcolumn {
     float: left;
     width: 25%;
-    background-color: #f1f1f1;
+    background-color: #fff;
     padding-left: 20px;
+    border-radius: 4px;
 }
 
 /* Fake image */
@@ -252,6 +254,41 @@ a:hover#menu-icon {
     background-color: white;
     padding: 20px;
     margin-top: 20px;
+}
+.card ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:top;
+  float:right;
+
+}
+
+.card a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display:block;
+    vertical-align: top;
+    margin-right: 20px;
+    border-bottom: 1px solid #2196f3;   
+}
+
+.card a:hover {
+  background-color: #ddd;
+  color: black;
+    border-bottom: 1px solid #2196f3; 
+}
+
+.card a.active {
+  background-color: #2196F3;
+  color: white;
 }
 
 /* Clear floats after the columns */
@@ -339,7 +376,6 @@ text-decoration:none;
 border: 1px solid #000;
 border-radius: 4px;
 background-color: #fff;
-
 }
 .form_div input[type="text"],input[type="password"],textarea
 {
@@ -381,12 +417,16 @@ font-weight:bold;
 .form_div input[type="submit"]:hover {
 	background-color: #fff;
 	color:#2196f3;
+	border:1px solid #ccc;
+    border-radius:4px;
 }
 
 .form_div input[type="submit"]:active {
-  background-color: #3e8e41;
+  background-color: #fff;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+  border:1px solid #ccc;
+  border-radius:4px;
 }
 
 
