@@ -122,6 +122,22 @@ body {
   line-height: 30px;
   font-size: 12px;
 }
+.profileflex-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #2196f3;
+}
+
+.profileflex-container > div {
+  background-color: #f1f1f1;
+  margin: 5px;
+  text-align: left;
+  line-height: 30px;
+  font-size: 11px;
+}
 .welcometext {
 	float:left;
 	width:50%;
@@ -318,7 +334,6 @@ a:hover#menu-icon {
 }
 
 .card a {
-  float: left;
   color: black;
   text-align: center;
   padding: 14px 16px;
@@ -329,7 +344,8 @@ a:hover#menu-icon {
   display:block;
     vertical-align: top;
     margin-right: 20px;
-    border-bottom: 1px solid #2196f3;   
+    border-bottom: 1px solid #2196f3;
+    width:100%;   
 }
 
 .card a:hover {
