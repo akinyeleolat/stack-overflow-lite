@@ -1,3 +1,4 @@
+// routes and endpoints
 const express=require('express');
 const router=express.Router();
 router.use(express.json()); // for post to work

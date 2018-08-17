@@ -1,3 +1,4 @@
+// App settings
 // set dependencies
  const express=require('express'); 
  const app = express();
