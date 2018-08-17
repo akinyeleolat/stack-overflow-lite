@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-router.use(express.json());
+router.use(express.json()); // for post to work
 
 // import questions data model
 //import {Questions} from 'model.js';
