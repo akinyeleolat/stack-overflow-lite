@@ -1,12 +1,17 @@
 // set dependencies
  const express=require('express'); 
  const app = express();
+ const bodyParser=require('body-parser');
+ //
+ const questionRoutes=require('./routes/questionRoutes');
  //const Questions = require('./api/model');
  //middleware
+ app.use('/v1/questions',questionRoutes);
+
  app.use(express.json());
 // import questions data model
 //import {Questions} from 'model.js';
-const Questions=require('./model/QuestionModel');
+//const Questions=require('./model/QuestionModel');
 //import {Questions} from '';
  /*const Questions=[
 }
@@ -23,21 +28,21 @@ const Questions=require('./model/QuestionModel');
 {id:2,QuestionId:2,Answer:'asynchrounous javascript'}
 ];*/
 //import answers data model
-const Answers=require('./model/AnswerModel');
+//const Answers=require('./model/AnswerModel');
 //import {Answers} from 'AnswerModel';
 // error handling 
 
 // End point 1 get all questions working
- app.get('/api/v1/questions',(req,res)=>{
+ /*app.get('/api/v1/questions',(req,res)=>{
     res.send(Questions);
- });
+ });*/
  //End point 2 get single questions working
- app.get('/api/v1/questions/:id',(req,res)=>{
+ /*app.get('/v1/questions/:id',(req,res)=>{
  	let result=Questions.find(c=>c.id===parseInt(req.params.id));
  	res.send(result);
  });
   //  End point 3 post questions working
- app.post('/api/v1/questions',(req,res)=>{
+ app.post('/v1/questions',(req,res)=>{
  	const Question={
  		id:Questions.length+1,
  		title:req.body.title,
@@ -47,7 +52,7 @@ const Answers=require('./model/AnswerModel');
    res.send(Question);
  });
  // End point 4 post answer working
-  app.post('/api/v1/questions/:QuestionId/answers',(req,res)=>{
+  app.post('/v1/questions/:QuestionId/answers',(req,res)=>{
   	let QId=parseInt(req.params.QuestionId);
   	//console.log(QId);
  	const Answer={
@@ -59,7 +64,7 @@ const Answers=require('./model/AnswerModel');
    res.send(Answer);
  });
  // End point 5 fetch all answer for single question working
- app.get('/api/v1/questions/:QuestionId/answers',(req,res)=>{
+ app.get('/v1/questions/:QuestionId/answers',(req,res)=>{
   	//get the questions id
   	let QId=parseInt(req.params.QuestionId);
   	//console.log(QId);
@@ -74,10 +79,10 @@ const Answers=require('./model/AnswerModel');
   // edit aswers
   // delete answers
 // PORT
-const port=process.env.PORT || 3000;
- app.listen(port,()=>console.log(`listening  on port ${port}...`));
+//const port=process.env.PORT || 3000;
+ //app.listen(port,()=>console.log(`listening  on port ${port}...`));*/
 
- 
+ module.exports=app;
  /*//End point 6 get all answer for  question not working
  app.get('/api/v1/questions/answers',(req,res)=>{
    res.send(Answers);

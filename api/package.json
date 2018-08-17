@@ -2,16 +2,16 @@
   "name": "stackoverflow-lite",
   "version": "1.0.0",
   "description": "stack overflow lite for developers",
-  "main": "app.js",
+  "main": "server.js",
   "babel": {
-"presets": [
-"env"
-]
-},
+    "presets": [
+      "env"
+    ]
+  },
   "scripts": {
     "test": "mocha index_test.js",
     "babel-node": "babel-node --presets=env",
-    "start": "nodemon --exec npm run babel-node -- app.js",
+    "start": "nodemon --exec npm run babel-node -- server.js",
     "build": "babel src -d dist"
   },
   "repository": {
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/akinyeleolat/stack-overflow-lite#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "lodash": "^4.17.10"
   },
