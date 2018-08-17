@@ -1,0 +1,39 @@
+{
+  "name": "stackoverflow-lite",
+  "version": "1.0.0",
+  "description": "stack overflow lite for developers",
+  "main": "app.js",
+  "babel": {
+"presets": [
+"env"
+]
+},
+  "scripts": {
+    "test": "mocha index_test.js",
+    "babel-node": "babel-node --presets=env",
+    "start": "nodemon --exec npm run babel-node -- app.js",
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akinyeleolat/stack-overflow-lite.git"
+  },
+  "author": "AKINYELE OLUWATOSIN A",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akinyeleolat/stack-overflow-lite/issues"
+  },
+  "homepage": "https://github.com/akinyeleolat/stack-overflow-lite#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "eslint": "^5.3.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
+}
