@@ -3,6 +3,7 @@
  const express=require('express'); 
  const app = express();
  const bodyParser=require('body-parser');
+ //const Joi=require('joi');
  // declaring routes
  const questionRoutes=require('./routes/questionRoutes');
  //const Questions = require('./api/model');
@@ -20,7 +21,7 @@
 
 app.use((error,req,res,next)=>{
 res.status(error.status||500);
-res.json({
+res.send({
 	error:{
 		message: error.message
 	}
