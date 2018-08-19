@@ -8,5 +8,5 @@ before_script: cd api
 
 script: 
   - npm test
-after_success:
-  - npm run report-coverage
+# after_success:
+#   - npm run report-coverage
