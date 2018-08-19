@@ -26,7 +26,7 @@ import Answers from '../model/AnswerModel';
 
 // Endpoint to get all questons
 router.get('/',(req,res,next)=>{
-	res.send(Questions);
+	res.status(200).send(Questions);
 	});
 // Endpoint 2 to get selected questions
 router.get('/:id',(req,res,next)=>{
