@@ -1,5 +1,5 @@
 // routes and endpoints
-const express=require('express');
+/*const express=require('express');
 const router=express.Router();
 //const Joi=require('joi');
 router.use(express.json()); // for post to work
@@ -8,7 +8,21 @@ router.use(express.json()); // for post to work
 const Questions=require('../model/QuestionModel');
 
 //import answers data model
-const Answers=require('../model/AnswerModel');
+const Answers=require('../model/AnswerModel');*/
+//question
+// routes and endpoints
+import express from 'express';
+
+const router=express.Router();
+import Joi from 'joi';
+router.use(express.json()); // for post to work
+
+// import questions data model
+//import {Questions} from 'model.js';
+import Questions from '../model/QuestionModel';
+
+//import answers data model
+import Answers from '../model/AnswerModel';
 
 // Endpoint to get all questons
 router.get('/',(req,res,next)=>{
@@ -122,4 +136,5 @@ function validateQuestion(title,details){
 
   // delete answers
 
-module.exports=router;
+//module.exports=router;
+export default router

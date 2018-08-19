@@ -14,4 +14,5 @@
 Answers: [{
 }]
 }*/
-module.exports=fetchAnswers();
+//module.exports=fetchAnswers();
+export default fetchAnswers();

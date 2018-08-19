@@ -1,7 +1,10 @@
-const app=require('./server');
+
+import app from './server';
+
 //import * as supertest from "supertest";
-const supertest=require('supertest');
-const questionRoutes=require('./routes/questionRoutes');
+import supertest from 'supertest';
+
+import questionRoutes from './routes/questionRoutes';
 //const questions=require('./model/QuestionModel'); 
 //const answers=require('./model/AnswerModel'); 
 const request=supertest.agent(app);

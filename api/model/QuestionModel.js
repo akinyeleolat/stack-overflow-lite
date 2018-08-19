@@ -19,4 +19,5 @@ return Questions;
 Questions: [{
 }]
 }*/
-module.exports=fetchQuestions();
+//module.exports=fetchQuestions();
+export default fetchQuestions();
