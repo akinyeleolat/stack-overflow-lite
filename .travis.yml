@@ -1,12 +1,8 @@
 language: node_js
 
 node_js:
-v8.11.3
+  v8.11.3
 
-
-before_script: cd api
 
 script: 
   - npm test
-# after_success:
-#   - npm run report-coverage
