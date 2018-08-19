@@ -1,5 +1,7 @@
+node_modules/
 log.txt
 Top Questions.txt
 api/snippet.txt
 api/log.txt
-node_modules/
+es6.js
+node_modules/babel-preset-env/package.json
