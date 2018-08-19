@@ -1,10 +1,10 @@
 
-import app from './server';
+import app from './api/server.js';
 
 //import * as supertest from "supertest";
 import supertest from 'supertest';
 
-import questionRoutes from './routes/questionRoutes';
+import questionRoutes from './api/routes/questionRoutes';
 //const questions=require('./model/QuestionModel'); 
 //const answers=require('./model/AnswerModel'); 
 const request=supertest.agent(app);

@@ -11,7 +11,7 @@
   "scripts": {
     "test": "mocha --require babel-core/register index.test.js",
     "babel-node": "babel-node --presets=env",
-    "start": "nodemon --exec npm run babel-node -- starter.js",
+    "start": "nodemon --exec npm run babel-node -- ./starter.js",
     "build": "babel src -d dist"
   },
   "repository": {
