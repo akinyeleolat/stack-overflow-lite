@@ -1,0 +1,742 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-family: Arial;
+    padding: 0;
+    background: #2196F3;
+    margin:0;
+    -webkit-margin-before:0em;
+    -webkit-margin-after:0em;
+
+}
+
+/* Header/Blog Title */
+.header {
+    margin-top:6px;
+    color:#2196F3;
+    text-align: center;
+  padding: 14px 16px;
+  font-size: 15px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    font-weight:bold;
+}
+.span{
+    color:blue;
+    opacity:.6;
+}
+.img{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 6px;
+    margin-top: 6px; 
+    width:50px; 
+    height: 50px;  /* if you want it vertically middle of the navbar. */
+    border-radius: 4px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #fff;
+  
+   /* position: fixed;Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+   /* change to desired color background-color: red; */
+  display: inline-block;
+  border: 1px solid #2196F3;
+}
+.button {
+    color: white;
+    width:25%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+   display: block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #2196f3;
+  box-shadow: 0 3px #999;
+  font-size:14px;
+  float:right;
+}
+
+.button:hover {
+	background-color: #3e8e41;
+	color:black;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
+}
+.questionbutton {
+    color: white;
+    width:25%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+   display: block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #2196f3;
+  box-shadow: 0 3px #999;
+  font-size:14px;
+  float:right;
+}
+
+.questionbutton:hover {
+	background-color: #3e8e41;
+	color:black;
+}
+
+.questionbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
+}
+.landing {
+  overflow: hidden;
+  /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+   /* change to desired color background-color: red; */
+    display: block;
+    padding: 20px;
+    text-align: center;
+    margin-top: -6px;
+    margin: auto;
+     background: linear-gradient(to right, #2196f3 , #21ccff);
+  /*background-image:  url('../UI/assets/img/bg2.jpgsets/img/bg.jpg') bottom;*/
+}
+
+.topflex-container {
+  display: flex;
+  width: 40%;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #2196f3;
+}
+
+.topflex-container > div {
+  background-color: #f1f1f1;
+  width: 30%;
+  margin: 5px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+}
+.profileflex-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #2196f3;
+}
+
+.profileflex-container > div {
+  background-color: #f1f1f1;
+  margin: 5px;
+  text-align: left;
+  line-height: 30px;
+  font-size: 11px;
+}
+.welcometext {
+	float:left;
+	width:50%;
+	color:#fff;
+	text-align: left;
+}
+.myform{
+width: 50%;
+margin: 0 auto;
+position: relative;
+margin-bottom:6px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+text-align: center;
+background-color: #ccc;
+float: right;
+height: 80%;
+overflow: hidden;
+}
+.pageform{
+margin: 0 auto;
+position: relative;
+margin-bottom:6px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+text-align: center;
+background-color: #ccc;
+height: 80%;
+overflow: hidden;
+float:left;
+width:80%;
+margin-left: 10%
+}
+.topnav ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:top;
+  float:right;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;        /* if you want it to take the full height of the bar */
+
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+    width: 75%;
+    padding: 14px;
+    border: 1px solid #2196F3;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background: lightyellow;
+    color: blue;
+  font-size: 15px;
+  }
+
+.topnav .search-container button {
+  float: right;
+  padding: 14px 16px;
+  margin-top: 6px;
+  margin-right: 6px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+#menu-icon {
+
+	display: hidden;
+	width: 40px;
+	height: 40px;
+	background: #4C8FEC url(../img/menu.png) center;
+
+}
+
+a:hover#menu-icon {
+
+	background-color: #444;
+	border-radius: 4px 4px 0 0;
+
+}
+
+@media screen and (max-width: 500px) {
+	.header {
+
+		position: absolute;
+
+	}
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 75%;
+    margin-top:0px;
+    padding-top: 2px;
+
+}
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 25%;
+    background-color: #fff;
+    padding-left: 20px;
+    border-radius: 4px;
+}
+
+/* Fake image */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+.card ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display:block;
+  vertical-align:top;
+  float:left;
+
+}
+
+.card a {
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display:block;
+    vertical-align: top;
+    margin-right: 20px;
+    border-bottom: 1px solid #2196f3;
+    width:100%;   
+}
+
+.card a:hover {
+  background-color: #ddd;
+  color: black;
+    border-bottom: 1px solid #2196f3; 
+}
+
+.card a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    background: #fff;
+    margin-top: 20px;
+    display: block;
+}
+.footer a {
+  color: black;
+  display: block;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  vertical-align: top;
+    margin-right: 20px;        /* if you want it to take the full height of the bar */
+}
+.footer a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.footer a.active {
+  background-color: #2196F3;
+  color: white;
+}
+#votes {
+    border-radius: 5px;
+    background: #2196f3;
+    padding: 5px; 
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    font-size: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+    vertical-align: top; 
+    color: #fff;
+    float:left;
+
+}
+
+#answers {
+    border-radius: 5px;
+    border: 1px solid #cc0000;
+    padding: 5px; 
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    font-size: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+    vertical-align: top;
+    float:left;    
+}
+#tag {
+    padding: 5px; 
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+  margin-bottom: 6px;
+  display: inline-block;
+  vertical-align: top; 
+  float: right; 
+  color:#999;
+}
+#answerstxt {
+    padding: 5px; 
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: inline-block;
+    vertical-align: top; 
+    color:#3c3c3c;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+#response{
+    padding: 5px; 
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: inline-block;
+    vertical-align: top; 
+    color:#3c3c3c;
+    border-radius: 5px;
+   border: 1px solid #cc0000;
+}
+#answertitle{
+	padding: 5px; 
+    text-align: center;
+    font-size: 20px;
+    width: 75%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: block;
+  vertical-align: top;
+  color:#0000cc; 
+  text-shadow: #ccc; 
+  border-bottom: 0px;
+}
+.questions {
+    padding: 5px; 
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+  vertical-align: top; 
+  border-bottom: #2196f3 1px solid; 
+}
+.questions a {
+    padding: 5px; 
+    font-size: 15px;
+    width: 75%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: block;
+  vertical-align: top;
+  color:#0000cc; 
+  text-shadow: #ccc; 
+  border-bottom: 0px;  
+}
+.questions a:hover {
+  background-color: #fff;
+  color:#0000cc;
+    border-bottom: 0px; 
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
+    }
+    .topnav footer{
+      display:none;
+    }
+    .myform{
+      display:none;
+    }
+    .welcometext{
+      width:100%;
+    }
+    .topflex-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #2196f3;
+}
+
+.topflex-container > div {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 5px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+}
+.questionbutton {
+    color: white;
+    width:50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+   display: block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #2196f3;
+  box-shadow: 0 3px #999;
+  font-size:14px;
+  float:right;
+}
+}
+#wrapper
+{
+ margin:0 auto;
+ padding:0px;
+ text-align:center;
+ width:995px;
+}
+#wrapper h1
+{
+ margin-top:50px;
+ font-size:45px;
+ color:#424949;
+}
+#wrapper h1 p
+{
+font-size:18px;
+}
+.form_div
+{
+width:100%px;
+margin-left:5px;
+padding:10px;
+}
+.form_div .form_label
+{
+margin:15px;
+margin-bottom:30px;
+font-size:25px;
+font-weight:bold;
+color:#000;
+text-decoration:none;
+border: 1px solid #000;
+border-radius: 4px;
+background-color: #fff;
+}
+.form_div input[type="text"],input[type="password"],textarea
+{
+width:90%;
+height:40px;
+border-radius:2px;
+padding-left:5px;
+padding: 14px;
+border: 1px solid #2196F3;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 6px;
+background: lightyellow;
+color: blue;
+font-size: 15px;
+font-family: FontAwesome;
+
+}
+.form_div input[type="submit"]
+{
+width:25%px;
+height:40px;
+border:1px solid #fff;
+border-radius:4px;
+font-size:16px;
+background-color:#2196f3;
+border-bottom:2px solid #2196f3;
+color:white;
+font-weight:bold;
+ padding: 12px;
+ box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 2px #999;
+  position:right;
+}
+.form_div input[type="submit"]:hover {
+	background-color: #fff;
+	color:#2196f3;
+	border:1px solid #ccc;
+    border-radius:4px;
+}
+
+.form_div input[type="submit"]:active {
+  background-color: #fff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+
+
+@media only screen and (min-width:700px) and (max-width:995px)
+{
+#wrapper
+{
+width:100%;
+}
+#wrapper h1
+{
+font-size:30px;
+}
+.form_div
+{
+width:50%;
+margin-left:25%;
+padding-left:0px;
+padding-right:0px;
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:80%;
+}
+.form_div textarea
+{
+width:80%;
+}
+.form_div input[type="submit"]
+{
+width:50%;
+}
+}
+@media only screen and (min-width:400px) and (max-width:699px)
+{
+#wrapper
+{
+width:100%;
+}
+#wrapper h1
+{
+font-size:30px;
+}
+.form_div
+{
+width:80%;
+margin-left:20%;
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:80%;
+}
+.form_div input[type="submit"]
+{
+width:50%;
+}
+}
+@media only screen and (min-width:100px) and (max-width:399px)
+{
+#wrapper
+{
+width:100%;
+}
+#wrapper h1
+{
+font-size:25px;
+}
+.form_div
+{
+width:90%;
+margin-left:5%;
+padding-left:0px;
+padding-right:0px;
+}
+.form_div input[type="text"],input[type="password"]
+{
+width:80%;
+}
+.form_div input[type="submit"]
+{
+width:80%;
+}
+}
