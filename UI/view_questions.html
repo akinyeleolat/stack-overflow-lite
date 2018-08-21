@@ -1,117 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>StackOverflow-lite</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel = "stylesheet" type = "text/css" href = "./assets/css/style.css" />
+  <title>StackOverflow-lite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
+
 <body>
-	<header>
-<nav class="topnav">
-	
-<img class="img" src="./assets/img/logo.png"  hspace="0" vspace="0">
-<font class="header">	
-  <span class="span">Stack Overflow</span> Lite
-</font>
- <ul>
-        <a  class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+  <header>
+    <nav class="topnav">
+
+      <img class="img" src="./assets/img/logo.png" hspace="0" vspace="0">
+      <font class="header">
+        <span class="span">Stack Overflow</span> Lite
+      </font>
+      <ul>
+        <a class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
         <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
         <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
-       <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
-        
- <div class="search-container">
-    <form>
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form></div></ul>
-  </nav>
-</header>
+        <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+        <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
 
- <div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <div class="QuestionDiv"><h3>Featured Questions</h3>
-
-      	      <a class="button" href="./ask_question.html" style="float:right;color:white;width:25%"><i class="fa fa-fw fa-user"></i>ASK QUESTION</a> <a class="button" href="./view_questions.html" style="float:right;color:white;width:25%"><i class="fa fa-fw fa-user"></i>VIEW QUESTION</a></div>
-  <div class="topflex-container">
-  <div>200 Interesting</div>
-  <div>360 Hot</div>
-  <div>100 Tags</div>  
-</div>	
+        <div class="search-container">
+          <form>
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </ul>
+    </nav>
+  </header>
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h3>Featured Questions</h3>
+      </div>
+      <div class="card">
+        <div class="topflex-container">
+          <div>200 Interesting</div>
+          <div>360 Hot</div>
+          <div>100 Tags</div>
+        </div>
+        <div class="questions">
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p><a href="answers.html">Android Google Maven repository not found</a></p>
+          <p id="tag">android cordova google-play-services</p>
+        </div>
+        <div class="questions">
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p><a href="answers.html">Pygame in Childfile not defining in python</a></p>
+          <p id="tag">python pygame python-import</p>
+        </div>
+        <div class="questions">
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p><a href="answers.html">Android Google Maven repository not found</a></p>
+          <p id="tag">android cordova google-play-services</p>
+        </div>
+        <div class="questions">
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p><a href="answers.html">MySQL get distinct values from arbitrarily long arrays of strings across rows</a></p>
+          <p id="tag">mysql arrays json mysql-5.7</p>
+        </div>
+        <div class="questions">
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p><a href="answers.html">Android Google Maven repository not found</a></p>
+          <p id="tag">android cordova google-play-services</p>
+        </div>
+        <div class="questions">
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p><a href="answers.html">Android Google Maven repository not found</a></p>
+          <p id="tag">android cordova google-play-services</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-    	<div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Pygame in Childfile not defining in python</a></p>
-      <p id="tag">python pygame python-import</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">MySQL get distinct values from arbitrarily long arrays of strings across rows</a></p>
-      <p id="tag">mysql arrays json mysql-5.7</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-      <div class="questions">
-      <p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-      <p><a href="answers.html">Android Google Maven repository not found</a></p>
-      <p id="tag">android cordova google-play-services</p></div>
-
-      
+    <div class="rightcolumn">
+      <div class="profileflex-container">
+        <div class="card">
+          <h3>Top Questions</h3>
+          <p>
+            <ul>
+              <a href="#">What is a HTML ?</a>
+              <a href="#">What is a CSS ?</a>
+              <a href="#">What is a JS ?</a>
+              <a href="#">What is a PHP ?</a>
+              <a href="#">What is a NodeJS ?</a>
+              <a href="#">What is a Python ?</a>
+            </ul>
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <ul>
+              <h3>Top Questions</h3>
+              <a href="#">What is a HTML ?</a>
+              <a href="#">What is a CSS ?</a>
+              <a href="#">What is a JS ?</a>
+              <a href="#">What is a PHP ?</a>
+              <a href="#">What is a NodeJS ?</a>
+              <a href="#">What is a Python ?</a>
+            </ul>
+          </p>
+        </div>
+      </div>
     </div>
+
   </div>
-  <div class="rightcolumn">
-    <div class="card">
-      <font>Welcome,</font><br>
-      <p><a href="users.html"><img src="./assets/img/userprofile.jpg" width="100px" height="100px"></a></p>
-      <h3>Top Questions</h3>
 
-      <p><ul>
-                        <a href="#">What is a HTML ?</a>
-                        <a href="#">What is a CSS ?</a>
-                        <a href="#">What is a JS ?</a>
-                        <a href="#">What is a PHP ?</a>
-                        <a href="#">What is a NodeJS ?</a>
-                        
-                    </ul></p></div>
-    <div class="card">
-      <h3>Recent Questions</h3><p>    
+
+
+  <footer>
+    <nav class="topnav">
+
+      <img src="./assets/img/stack.png" hspace="0" vspace="0">
       <ul>
-                        <a href="#">What is a HTML ?</a>
-                        <a href="#">What is a CSS ?</a>
-                        <a href="#">What is a JS ?</a>
-                        <a href="#">What is a PHP ?</a>
-                        <a href="#">What is a Python ?</a>
-              
-                    </ul></p>
-    </div>
-  </div>
-</div>
-
-
-<footer class="footer">
-  <img  src="./assets/img/Stack.png"  hspace="0" vspace="0"><font class="header">	
-  <span class="span">Developed By</span> Akinyele Oluwatosin A | 
-</font>        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i> Login |</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up |</a>
-       <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i> Ask Question</a>
-        
-</footer>
+        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+        <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+        <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
+      </ul>
+    </nav>
+  </footer>
 </body>
+
 </html>
