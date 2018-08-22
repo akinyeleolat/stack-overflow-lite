@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 
 
 // declaring routes
@@ -8,7 +7,7 @@ import questionRoutes from './routes/questionRoutes';
 const app = express();
 // const Questions = require('./api/model');
 // handling request
-app.use('/v1/questions', questionRoutes);
+app.use('/api/v1/questions', questionRoutes);
 app.use(express.json());
 
 // app error handling
@@ -19,7 +18,7 @@ app.use((req, res, next) => {
 	next(error);
 });
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
 	res.status(error.status || 500);
 	res.send({
 		error: {
