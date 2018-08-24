@@ -26,12 +26,15 @@
   },
   "homepage": "https://github.com/akinyeleolat/stack-overflow-lite#readme",
   "dependencies": {
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "joi": "^13.6.0",
     "lodash": "^4.17.10",
-    "babel-register": "^6.26.0",
-    "npm": "^6.4.0"
+    "npm": "^6.4.0",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

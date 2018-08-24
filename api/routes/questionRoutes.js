@@ -1,37 +1,59 @@
-// routes and endpoints
 
 // routes and endpoints
 import express from 'express';
 
-import Questions from '../model/QuestionModel';
+import * as queries from '../controller/questionController';
 
-// import answers data model
-import Answers from '../model/AnswerModel';
+
 
 const router = express.Router();
 router.use(express.json());
 
+//routes
+router.get('/', queries.getAllQuestions);
+router.get('/:id', queries.getSingleQuestions);
+router.post('/', queries.PostQuestion);
+router.post('/:Id/answers', queries.PostAnswer);
+//router.get('/:Id/answers', queries.fetchAllAnswers);
+router.delete('/:id', queries.deleteQuestion);
+router.put('/:QuestionId/answers/:AnswerId', queries.markAnswersPrefered);
+
+
+
+
+
+
 // Endpoint to get all questons
-router.get('/', (req, res, next) => {
-	res.status(200).send(Questions);
+router.get('/', (req, res) => {
+	pool.query('SELECT * FROM Questions', (err) => {
+		if (err) {
+			throw err;
+		}
+
+		console.log('Questions', res.rows[0]);
+	});
 });
 // Endpoint 2 to get selected questions
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
 	// receive params
 	const result = Questions.find(c => c.id === parseInt(req.params.id));
 	if (!result) res.status(404).send('The question with given id was not found');
 	res.send(result);
 });
 //  End point 3 post questions working
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
 	// validate
 	const Question = {
 		id: Questions.length + 1,
 		title: req.body.title,
 		details: req.body.details,
 	};
-	Questions.push(Question);
-	res.send(Question);
+
+	return db.any('INSERT INTO QUESTIONS VALUES ($1,$2,$3) ', [req.body.title, req.body.details, Date()])
+		.then((data) => {
+			return res.send(data);
+		})
+		.catch(error => res.status(400).send(error))
 });
 // End point 4 post answer for a question working
 router.post('/:QuestionId/answers', (req, res, next) => {
