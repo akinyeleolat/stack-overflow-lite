@@ -14,7 +14,6 @@ CASCADE;
 CREATE TABLE
 IF NOT EXISTS users
 (
-  
     id SERIAL PRIMARY KEY,
     fullname VARCHAR
 (150) NOT NULL,
@@ -25,24 +24,18 @@ IF NOT EXISTS users
     password VARCHAR
 (255) NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
   );
 
 
 CREATE TABLE
 IF NOT EXISTS Questions
 (
-
     id SERIAL PRIMARY KEY,
-  
     title VARCHAR
 (255) NOT NULL,
-  
     details TEXT NOT NULL,
-  
     userId int REFERENCES users
 (id),
-  
     createdAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
 
 

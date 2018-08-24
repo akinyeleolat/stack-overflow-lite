@@ -5,10 +5,10 @@ import db from '../db/index';
 
 
 export function getAllQuestions(req, res, next) {
-  db.any('select * from questions')
+  db.query('select * from questions')
     .then(function (data) {
       res.status(200)
-        .json({
+        .send({
           status: 'success',
           data: data,
           message: 'Retrieved ALL Questions'
@@ -36,12 +36,12 @@ export function getSingleQuestions(req, res, next) {
 
 export function PostQuestion(req, res, next) {
   const userID = Number(req.body.userID);
-  db.none('INSERT INTO QUESTIONS VALUES ($1,$2,$3,$4) ', [req.body.title, req.body.details, userID, Date()])
+  db.query('INSERT INTO Questions VALUES ($1,$2,$3,$4) ', [req.body.title, req.body.details, userID, Date()])
     .then(function () {
       res.status(200)
-        .json({
+        .send({
           status: 'success',
-          message: 'Inserted one puppy'
+          message: 'Inserted one Questions'
         });
     })
     .catch(function (err) {

@@ -24,7 +24,7 @@ router.put('/:QuestionId/answers/:AnswerId', queries.markAnswersPrefered);
 
 
 // Endpoint to get all questons
-router.get('/', (req, res) => {
+/*router.get('/', (req, res) => {
 	pool.query('SELECT * FROM Questions', (err) => {
 		if (err) {
 			throw err;
@@ -32,16 +32,16 @@ router.get('/', (req, res) => {
 
 		console.log('Questions', res.rows[0]);
 	});
-});
+});*/
 // Endpoint 2 to get selected questions
-router.get('/:id', (req, res) => {
+/*router.get('/:id', (req, res) => {
 	// receive params
 	const result = Questions.find(c => c.id === parseInt(req.params.id));
 	if (!result) res.status(404).send('The question with given id was not found');
 	res.send(result);
-});
+});*/
 //  End point 3 post questions working
-router.post('/', (req, res) => {
+/*router.post('/', (req, res) => {
 	// validate
 	const Question = {
 		id: Questions.length + 1,
@@ -54,7 +54,7 @@ router.post('/', (req, res) => {
 			return res.send(data);
 		})
 		.catch(error => res.status(400).send(error))
-});
+});*/
 // End point 4 post answer for a question working
 router.post('/:QuestionId/answers', (req, res, next) => {
 	const QId = parseInt(req.params.QuestionId);
