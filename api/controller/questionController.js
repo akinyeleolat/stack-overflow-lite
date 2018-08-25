@@ -10,7 +10,7 @@ export function getAllQuestions(req, res) {
       });
     })
     .catch(function (err) {
-      return res.status(500).json({ message: 'the required resources not found' });
+      return res.status(500).json({ message: 'internal server error' });
     });
 };
 export function getSingleQuestions(req, res) {
@@ -24,7 +24,7 @@ export function getSingleQuestions(req, res) {
       });
     })
     .catch(function (err) {
-      return res.status(500).json({ message: 'the question not found' });
+      return res.status(500).json({ message: 'internal server error' });
     });
 };
 
@@ -39,11 +39,11 @@ export function PostQuestion(req, res) {
     .then(function () {
       res.status(200).send({
         status: 'success',
-        message: 'Inserted one Questions'
+        message: 'Question Added'
       });
     })
     .catch(function (err) {
-      return res.status(500).json({ message: 'no question added' });
+      return res.status(500).json({ message: 'internal server error' });
     });
 };
 
@@ -51,7 +51,7 @@ export function PostAnswer(req, res) {
   const QuestionId = Number(req.params.QuestionId);
   const userID = Number(req.body.userID);
   let status = 'pending';
-  db.none('INSERT INTO ANSWERS (answers,questionId,userId,status,date) VALUES ($1,$2,$3,$4,$5) ', [req.body.answer, QuestionId, userID, new Date()])
+  db.none('INSERT INTO ANSWERS (answers,questionId,userId,status,date) VALUES ($1,$2,$3,$4,$5) ', [req.body.answer, QuestionId, userID,status, new Date()])
     .then(function () {
       res.status(200).json({
         status: 'success',
@@ -59,30 +59,30 @@ export function PostAnswer(req, res) {
       });
     })
     .catch(function (err) {
-      return res.status(500).json({ message: 'No Answer submitted' });
+      return res.status(500).json({ message: 'internal server error' });
     });
 };
 
 export function deleteQuestion(req, res) {
   const QuestionId = Number(req.params.id);
-  db.result('delete from Questions where id = $1', QuestionId)
+  db.query('delete from Questions where id = $1', QuestionId)
     .then(function (result) {
-      /* jshint ignore:start */
+     
       res.status(200).json({
         status: 'success',
         message: `Removed ${result.rowCount} questions`
       });
-      /* jshint ignore:end */
+      
     })
     .catch(function (err) {
-      return res.status(500).json({ message: 'no question deleted' });
+      return res.status(500).json({ message: 'internal server error' });
     });
 };
 export function markAnswersPrefered(req, res) {
   const QuestionId = Number(req.params.QuestionId);
   const AnswerId = Number(req.params.AnswerId);
   const { status } = req.body;
-  db.none('update Answers set status=$1  where id=$2 AND QuestionId=$3',
+  db.query('update Answers set status=$1  where id=$2 AND QuestionId=$3',
     [status, AnswerId, QuestionId])
     .then(function () {
       res.status(200).json({

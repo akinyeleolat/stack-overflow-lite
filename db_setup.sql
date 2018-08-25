@@ -21,7 +21,7 @@ IF NOT EXISTS users
 (100) NOT NULL,
     email VARCHAR
 (255) UNIQUE NOT NULL,
-    password VARCHAR
+    userpassword VARCHAR
 (255) NOT NULL,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
   );

@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
 // declaring routes
 import questionRoutes from './routes/questionRoutes';
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
 app.use('/api/v1/questions', questionRoutes);
 app.use('/api/v1/users', userRoutes);
