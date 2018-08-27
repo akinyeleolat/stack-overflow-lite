@@ -28,7 +28,3 @@ app.all((req, res) => {
 
 
 export default app;
-/* //End point 6 get all answer for  question not working
- app.get('/api/v1/questions/answers',(req,res)=>{
-   res.send(Answers);
- }); */
