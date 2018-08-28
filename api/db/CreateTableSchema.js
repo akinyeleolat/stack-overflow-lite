@@ -27,9 +27,9 @@ const createTable = () => {
   
     email VARCHAR(255) UNIQUE NOT NULL,
   
-    password VARCHAR(255) NOT NULL,
+    userpassword VARCHAR(255) NOT NULL,
   
-    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 
 
   );

@@ -8,54 +8,58 @@ import * as valid from '../auth/validate';
 export function SignUp(req, res) {
   // define input
   const {
-    fullname, username, email, userpassword,
+    fullname, username, email, password,
   } = req.body;
+  console.log('username ------>', username);
+  console.log('fullname ------>', fullname);
+  console.log('email ------>', email);
+  console.log('userpassword----->', password);
+  console.log('createdAt------->', new Date());
   // validate
   if (!valid.validEmail(email)) {
     res.json({ message: 'Enter Valid Email' });
     return;
   }
   // check email exist
-  db.query('select * from users where email = $1', email)
+  console.log('We re about to query select');
+  db.query('select * from users where email = $1', [email])
     .then((user) => {
       if (user.length >= 1) {
         return res.status(409).json({
           message: 'users email already exist',
         });
       }
-
+      console.log('We re about to end query select');
 
       // hash password
-      const password = bcrypt.hash(userpassword, 10, (err, hash) => {
-        if (err) {
-          return res.status(500).json({
-            error: err,
-          });
-        }
-        return hash;
-      });
+      const userpassword = bcrypt.hashSync(password, 10);
+      console.log('This is our hashed password', userpassword)
+      // console.log('userpassword----->', password);
 
-      console.log('username ------>', username);
-      console.log('fullname ------>', fullname);
-      console.log('email ------>', email);
-      console.log('userpassword----->', password);
-      console.log('createdAt------->', new Date());
-
-      db.query('INSERT INTO users (fullname,username,email,userpassword, createdAt) VALUES ($1, $2, $3, $4.$5)', [fullname, username, email, password, new Date()])
+      db.query('INSERT INTO users (fullname,username,email,userpassword, createdat) VALUES ($1, $2, $3, $4, $5)', [fullname, username, email, userpassword, new Date()])
         .then(() => {
-          res.status(200)
+          return res.status(200)
             .send({
               status: 'success',
               message: 'users created',
             });
         })
-        .catch(err => res.status(500).json({ error: err }));
-
-
+        .catch((error) => {
+          return res.status(500).json({
+            status: 'Signup error',
+            message: error.message,
+          })
+        });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        status: 'Signup error',
+        message: error.message,
+      })
     });
 }
 
-export function SignIn(req, res) {
+export const SignIn = (req, res) => {
   // define input
   const {
     username, userpassword,
