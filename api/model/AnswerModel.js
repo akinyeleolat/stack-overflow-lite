@@ -1,12 +1,12 @@
 // Answer Data MOdel
-function fetchAnswers() {
-	const Answers =
-		[
-			{ id: 1, QuestionId: 1, Answer: 'hypertext markup language' },
-			{ id: 2, QuestionId: 2, Answer: 'asynchrounous javascript' }
-		];
-	return Answers;
+import { db } from '../db/index';
 
+export default (req, res) => {
+	db.query('SELECT * FROM Answers')
+		.then((data) => res.status(200).send({
+			status: 'success',
+			data: data,
+			message: 'Retrieved ALL Answers'
+		}))
+		.catch(() => res.status(500).json({ message: 'internal server error' }));
 };
-
-export default fetchAnswers();
