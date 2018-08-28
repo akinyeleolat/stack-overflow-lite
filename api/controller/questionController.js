@@ -1,4 +1,5 @@
-import db from '../db/index';
+import jwt from 'jsonwebtoken';
+import { db } from '../db/index';
 
 
 export function getAllQuestions(req, res) {
@@ -31,23 +32,31 @@ export function getSingleQuestions(req, res) {
 };
 
 export function PostQuestion(req, res) {
+  // console.log("start to get Token")
+  //get Token
+  const token = req.headers.authorization.split(" ")[1];
 
-  const { userID, title, details } = req.body;
+  const decoded = jwt.verify(token, process.env.SECRET_KEY);
+  req.userData = decoded;
+
+  // console.log("end get Token")
+  const { userId } = req.userData;
+
+  const { title, details } = req.body;
 
   console.log('title ------>', title);
-  console.log('title ------>', details);
-  console.log('title ------>', userID);
-  db.query('INSERT INTO questions (title,details,userId,createdAt) VALUES ($1, $2, $3, $4)', [title, details, Number(userID), new Date()])
-    .then(function () {
+  console.log('details ------>', details);
+  console.log('userId ------>', userId);
+
+  db.query('INSERT INTO questions (title,details,userId,createdAt) VALUES ($1, $2, $3, $4)', [title, details, Number(userId), new Date()])
+    .then(() => {
       res.status(200).send({
         status: 'success',
         message: 'Question Added'
       });
     })
-    .catch(function (err) {
-      return res.status(500).json({ message: 'internal server error' });
-    });
-};
+    .catch(err => res.status(500).json({ error: err }));
+}
 
 export function PostAnswer(req, res) {
   const QuestionId = Number(req.params.QuestionId);

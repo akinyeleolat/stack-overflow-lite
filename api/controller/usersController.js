@@ -95,7 +95,7 @@ export const SignIn = (req, res) => {
           {
             expiresIn: '1h',
           });
-        console.log('token---------->', token)
+        //console.log('token---------->', token)
         return res.status(200).json({
           message: 'Auth Successful',
           Token: token,
