@@ -18,7 +18,7 @@ export const getAllQuestions = (req, res) => {
 export const getSingleQuestions = (req, res) => {
   //must display answers
   const QuestionID = Number(req.params.id);
-  db.query('select * from questions where id = $1', QuestionID)
+  db.query('SELECT * FROM questions where id = $1', QuestionID)
     .then((data) => {
       return res.status(200).json({
         status: 'success',

@@ -1,23 +1,11 @@
+import { db } from '../db/index';
 
-//Question Data Model
-fetchQuestions(){
-	const Questions =
-		[
-			{ id: 1, title: 'what is html', details: 'what is the full meaning of html' },
-			{ id: 2, title: 'what is ajax', details: 'what is the full meaning of ajax' },
-			{ id: 3, title: 'what is html', details: 'what is the full meaning of html' },
-			{ id: 4, title: 'what is html', details: 'what is the full meaning of html' },
-			{ id: 5, title: 'what is html', details: 'what is the full meaning of html' },
-			{ id: 6, title: 'what is html', details: 'what is the full meaning of html' }
-		];
-
-	return Questions;
+export default (req, res) => {
+	db.query('SELECT * FROM Questions')
+		.then((data) => res.status(200).send({
+			status: 'success',
+			data: data,
+			message: 'Retrieved ALL Questions'
+		}))
+		.catch(() => res.status(500).json({ message: 'internal server error' }));
 };
-
-
-/*export default {
-Questions: [{
-}]
-}*/
-//module.exports=fetchQuestions();
-export default fetchQuestions();
