@@ -1,4 +1,4 @@
-import { Pool } from 'pg';
+import pg from 'pg-promise';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -8,12 +8,11 @@ connectionString = process.env.DATABASE_URL;
 
 console.log(connectionString);
 
+const pgp = pg();
 
-const db = new Pool({ connectionString, ssl: true });
+export const db = pgp(connectionString);
+if (db) {
+  console.log('database connected')
+}
 
-db.connect().then(() => {
-  console.log(' succefully connected to postgresDB');
-}).catch((err) => {
-  console.log(err.message);
-});
-export default db;
+// export default db;

@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import db from '../db/index';
+import { db } from '../db/index';
 import * as valid from '../auth/validate';
 
 // users model
@@ -22,7 +22,7 @@ export function SignUp(req, res) {
   }
   // check email exist
   console.log('We re about to query select');
-  db.query('select * from users where email = $1', [email])
+  db.any('SELECT * FROM users WHERE email = $1', [email])
     .then((user) => {
       if (user.length >= 1) {
         return res.status(409).json({
@@ -66,7 +66,7 @@ export const SignIn = (req, res) => {
   } = req.body;
 
   // check username exist
-  db.query('select * from users where username = $1', [username])
+  db.any('SELECT * FROM users WHERE username = $1', [username])
     .then((user) => {
       if (user.length < 1) {
         return res.status(404).json({
@@ -74,35 +74,38 @@ export const SignIn = (req, res) => {
         });
       }
       // compare db hash password with the supplied password
-      bcrypt.hashcompare(userpassword, user[0].userpassword, (err, result) => {
-        if (err) {
-          return res.status(401).json({
-            message: 'Auth Failed',
-          });
-        }
-        if (result) {
-          const token = jwt.sign({
-            email: user[0].email,
-            userId: user[0].id,
-          }, process.env.SECRET_KEY,
-            {
-              expiresIn: '1h',
-            });
-          return res.status(200).json({
-            message: 'Auth Successful',
-            Token: token,
-          });
-        }
-        return res.status(401).json({
-          message: 'Auth Failed',
-        });
-      });
 
-      console.log('username ------>', username);
-      console.log('userpassword----->', userpassword);
-      console.log('Retrieved password----->', user[0].id);
-      console.log('Retrieved email----->', user[0].email);
-      console.log('Retrieved password----->', user[0].userpassword);
+      // console.log(userpassword)
+      // console.log(user[0].userpassword)
+      // console.log(user);
+
+      const result = bcrypt.compareSync(userpassword, user[0].userpassword);
+      //(err, result) => {
+      //     if (err) {
+      //       return res.status(401).json({
+      //         message: 'Auth Failed',
+      //       });
+      //     }
+      console.log(result);
+      if (result) {
+        const token = jwt.sign({
+          email: user[0].email,
+          userId: user[0].id,
+        }, process.env.SECRET_KEY,
+          {
+            expiresIn: '1h',
+          });
+        console.log('token---------->', token)
+        return res.status(200).json({
+          message: 'Auth Successful',
+          Token: token,
+        });
+      }
+      return res.status(401).json({
+        message: 'Auth Failed',
+      });
     })
     .catch(err => res.status(500).json({ error: err }));
 }
+
+
