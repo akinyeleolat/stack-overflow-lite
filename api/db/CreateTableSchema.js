@@ -8,14 +8,14 @@ const connectionString = process.env.DATABASE_URL;
 const client = new Client({ connectionString, ssl: true });
 
 client.connect();
+// DROP TABLE IF EXISTS Questions CASCADE;
+
+//   // DROP TABLE IF EXISTS Users CASCADE;
+
+//   // DROP TABEL IF EXISTS Answers CASCADE;
 
 const createTable = () => {
   const query = ` 
-  DROP TABLE IF EXISTS Questions CASCADE;
-
-  DROP TABLE IF EXISTS Users CASCADE;
-
-  DROP TABEL IF EXISTS Answers CASCADE;
   
   CREATE TABLE IF NOT EXISTS users(
   

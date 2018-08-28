@@ -3,6 +3,7 @@
 import express from 'express';
 
 import * as questionController from '../controller/questionController';
+import checkAuth from '../auth/userAuth';
 
 
 
@@ -12,11 +13,10 @@ router.use(express.json());
 //routes
 router.get('/', questionController.getAllQuestions);
 router.get('/:id', questionController.getSingleQuestions);
-router.post('/', questionController.PostQuestion);
-router.post('/:Id/answers', questionController.PostAnswer);
-//router.get('/:Id/answers', queries.fetchAllAnswers);
-router.delete('/:id', questionController.deleteQuestion);
-router.put('/:QuestionId/answers/:AnswerId', questionController.markAnswersPrefered);
+router.post('/', checkAuth, questionController.PostQuestion);
+router.post('/:Id/answers', checkAuth, questionController.PostAnswer);
+router.delete('/:id', checkAuth, questionController.deleteQuestion);
+router.put('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
 
 
 
