@@ -1,5 +1,5 @@
 // Answer Data MOdel
-function fetchAnswers() {
+fetchAnswers() {
 	const Answers =
 		[
 			{ id: 1, QuestionId: 1, Answer: 'hypertext markup language' },

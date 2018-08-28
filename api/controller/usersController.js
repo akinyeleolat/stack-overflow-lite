@@ -5,7 +5,7 @@ import * as valid from '../auth/validate';
 
 // users model
 
-export function SignUp(req, res) {
+export const SignUp = (req, res) => {
   // define input
   const {
     fullname, username, email, password,
@@ -16,7 +16,7 @@ export function SignUp(req, res) {
   console.log('userpassword----->', password);
   console.log('createdAt------->', new Date());
   // validate
-  if (!valid.validEmail(email)) {
+  if (!valid(email)) {
     res.json({ message: 'Enter Valid Email' });
     return;
   }

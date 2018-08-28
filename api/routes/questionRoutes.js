@@ -5,8 +5,7 @@ import express from 'express';
 import * as questionController from '../controller/questionController';
 import checkAuth from '../auth/userAuth';
 
-
-
+// const checkAuth = { userAuth };
 const router = express.Router();
 router.use(express.json());
 
@@ -16,7 +15,7 @@ router.get('/:id', questionController.getSingleQuestions);
 router.post('/', checkAuth, questionController.PostQuestion);
 router.post('/:Id/answers', checkAuth, questionController.PostAnswer);
 router.delete('/:id', checkAuth, questionController.deleteQuestion);
-router.put('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
+router.patch('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
 
 
 
