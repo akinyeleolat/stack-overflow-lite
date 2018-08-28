@@ -3,7 +3,7 @@ import { db } from '../db/index';
 
 
 export function getAllQuestions(req, res) {
-  db.query('select * from questions')
+  db.query('SELECT * FROM questions')
     .then(function (data) {
       return res.status(200).send({
         status: 'success',
@@ -11,7 +11,7 @@ export function getAllQuestions(req, res) {
         message: 'Retrieved ALL Questions'
       });
     })
-    .catch(function (err) {
+    .catch(() => {
       return res.status(500).json({ message: 'internal server error' });
     });
 };
