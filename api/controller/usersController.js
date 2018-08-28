@@ -66,7 +66,7 @@ export const SignIn = (req, res) => {
   } = req.body;
 
   // check username exist
-  db.query('select * from users where username = $1', username)
+  db.query('select * from users where username = $1', [username])
     .then((user) => {
       if (user.length < 1) {
         return res.status(404).json({
