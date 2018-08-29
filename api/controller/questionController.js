@@ -139,7 +139,7 @@ export const deleteQuestion = (req, res) => {
 export const markAnswersPrefered = (req, res) => {
   const QuestionId = Number(req.params.QuestionId);
   const AnswerId = Number(req.params.AnswerId);
-  const { status } = req.body;
+  const status = 'Preferred';
   // console.log("start to get Token")
   //get Token
   const token = req.headers.authorization.split(" ")[1];
@@ -149,14 +149,24 @@ export const markAnswersPrefered = (req, res) => {
 
   // console.log("end get Token")
   const { userId } = req.userData;
-  //use user ID to know who set questions
-  db.query('UPDATE Answers SET status=$1  where id=$2 AND QuestionId=$3',
-    [status, AnswerId, QuestionId])
-    .then(() => {
-      res.status(200).json({
-        status: 'success',
-        message: 'Answer status updated'
-      });
+  //use user ID to know who set the questions
+  db.query('SELECT Questions.userId FROM questions WHERE Questions.userId=$1', [Number(userId)])
+    .then((data) => {
+      if (data.length < 1) {
+        return res.status(500).json({ message: 'You are not question author' });
+      }
+      //then update status
+      db.query('UPDATE Answers SET status=$1  where id=$2 AND QuestionId=$3',
+        [status, AnswerId, QuestionId])
+        .then(() => {
+          res.status(200).json({
+            status: 'success',
+            message: 'Question mark as prefferred',
+          });
+        })
+        .catch(() => {
+          return res.status(500).json({ message: 'internal server error' });
+        });
     })
     .catch(() => {
       return res.status(500).json({ message: 'internal server error' });

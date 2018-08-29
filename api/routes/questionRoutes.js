@@ -15,7 +15,7 @@ router.get('/:QuestionId', questionController.getSingleQuestions);//more work
 router.post('/', checkAuth, questionController.PostQuestion);
 router.post('/:QuestionId/answers', checkAuth, questionController.PostAnswer);
 router.delete('/:id', checkAuth, questionController.deleteQuestion);
-router.patch('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
+router.put('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
 
 
 
