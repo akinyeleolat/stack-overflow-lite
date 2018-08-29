@@ -61,3 +61,4 @@ IF NOT EXISTS Answers
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
 
      );
+     
