@@ -6,3 +6,4 @@ api/snippet.txt
 api/log.txt
 es6.js
 node_modules/babel-preset-env/package.json
+.env

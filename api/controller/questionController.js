@@ -3,7 +3,8 @@ import { db } from '../db/index';
 
 
 export const getAllQuestions = (req, res) => {
-  db.query('SELECT * FROM questions')
+  // db.query('SELECT * FROM questions')
+  db.query('SELECT Questions.id,Questions.title,Questions.details,users.username,Questions.createdAt FROM questions INNER JOIN users ON questions.userId = users.id')
     .then((data) => {
       return res.status(200).send({
         status: 'success',
@@ -17,19 +18,41 @@ export const getAllQuestions = (req, res) => {
 };
 export const getSingleQuestions = (req, res) => {
   //must display answers
-  const QuestionID = Number(req.params.id);
-  db.query('SELECT * FROM questions where id = $1', QuestionID)
+  const { QuestionId } = req.params;
+  const QuestionID = Number(QuestionId);
+  console.log(QuestionID);
+  // 
+  db.query('SELECT Questions.id,Questions.title,Questions.details,users.username,Questions.createdAt FROM questions INNER JOIN users ON questions.userId = users.id WHERE Questions.id=$1', [QuestionID])
     .then((data) => {
-      return res.status(200).json({
-        status: 'success',
-        data: data,
-        message: 'Retrieved ONE Question'
-      });
+      if (data.length < 1) {
+        return res.status(500).json({ message: 'The questions with this id not found' });
+      }
+      // check for the answer posted for that questions
+      db.query('SELECT Answers.id,Answers.answer,Answers.status,users.username,Answers.date FROM Answers INNER JOIN users ON Answers.userId = users.id WHERE Answers.QuestionId=$1', [QuestionID])
+        .then((answer) => {
+          if (answer.length >= 1) {
+            return res.status(200).send({
+              status: 'success',
+              QuestionDetails: data,
+              AnswersDetails: answer,
+              message: 'Retrieved single questions'
+            });
+          }
+          return res.status(200).send({
+            status: 'success',
+            QuestionDetails: data,
+            AnswersDetails: 'No answer posted yet',
+            message: 'Retrieved single questions'
+          });
+        })
+        .catch(() => {
+          return res.status(500).json({ message: 'internal server error' });
+        });
     })
     .catch(() => {
       return res.status(500).json({ message: 'internal server error' });
     });
-};
+}
 
 export const PostQuestion = (req, res) => {
   // console.log("start to get Token")
@@ -59,7 +82,9 @@ export const PostQuestion = (req, res) => {
 }
 
 export const PostAnswer = (req, res) => {
-  const QuestionId = req.params.QuestionId;
+  const { QuestionId } = req.params;
+
+  console.log(Number(QuestionId));
   // console.log("start to get Token")
   //get Token
   const token = req.headers.authorization.split(" ")[1];
@@ -69,16 +94,18 @@ export const PostAnswer = (req, res) => {
 
   // console.log("end get Token")
   const { userId } = req.userData;
+  console.log(Number(userId));
   let status = 'pending';
-  db.none('INSERT INTO ANSWERS (answers,questionId,userId,status,date) VALUES ($1,$2,$3,$4,$5) ', [req.body.answer, Number(QuestionId), Number(userId), status, new Date()])
+  console.log(status);
+  db.none('INSERT INTO ANSWERS  VALUES ($1,$2,$3,$4,$5)', [req.body.answer, Number(QuestionId), Number(userId), status, new Date()])
     .then(() => {
       res.status(200).json({
         status: 'success',
         message: 'answer submitted'
       });
     })
-    .catch(() => {
-      return res.status(500).json({ message: 'internal server error' });
+    .catch((err) => {
+      return res.status(500).json({ message: err });
     });
 };
 
@@ -94,7 +121,7 @@ export const deleteQuestion = (req, res) => {
   // console.log("end get Token")
   const { userId } = req.userData;
   //USE user ID to know who can delete questions
-  db.query('DELETE * FROM Questions where id = $1', QuestionId)
+  db.any('DELETE * FROM Questions where id = $1', QuestionId)
     .then((result) => {
 
       res.status(200).json({
