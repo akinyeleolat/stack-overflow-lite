@@ -28,7 +28,7 @@ export const getSingleQuestions = (req, res) => {
         return res.status(500).json({ message: 'The questions with this id not found' });
       }
       // check for the answer posted for that questions
-      db.query('SELECT Answers.id,Answers.answer,users.username,Answers.date FROM Answers INNER JOIN users ON Answers.userId = users.id WHERE Answers.QuestionId=$1', [QuestionID])
+      db.query('SELECT Answers.id,Answers.answer,Answers.status,users.username,Answers.date FROM Answers INNER JOIN users ON Answers.userId = users.id WHERE Answers.QuestionId=$1', [QuestionID])
         .then((answer) => {
           if (answer.length >= 1) {
             return res.status(200).send({
