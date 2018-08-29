@@ -112,7 +112,8 @@ export const PostAnswer = (req, res) => {
 };
 
 export const deleteQuestion = (req, res) => {
-  const QuestionId = Number(req.params.id);
+  const { id } = req.params;
+  console.log(typeof (id));
   // console.log("start to get Token")
   //get Token
   const token = req.headers.authorization.split(" ")[1];
@@ -122,19 +123,33 @@ export const deleteQuestion = (req, res) => {
 
   // console.log("end get Token")
   const { userId } = req.userData;
-  //USE user ID to know who can delete questions
-  db.any('DELETE * FROM Questions where id = $1', QuestionId)
-    .then((result) => {
-
-      res.status(200).json({
-        status: 'success',
-        message: `Removed ${result.rowCount} questions`
-      });
-
+  console.log(userId);
+  // USE user ID to know who can delete questions
+  db.query('SELECT Questions.userId FROM questions WHERE Questions.userId=$1', [Number(userId)])
+    .then((data) => {
+      console.log(data);
+      if (data.length < 1) {
+        return res.status(500).json({ message: 'You are not authorized to delete the question' });
+      }
+      console.log('start delete questions');
+      console.log([Number(id)]);
+      //then delete question
+      db.query('DELETE FROM questions WHERE questions.id = $1', [Number(id)])
+        .then((result) => {
+          console.log(result);
+          res.status(200).json({
+            status: 'success',
+            message: 'Questions deleted',
+          });
+        })
+        .catch((err) => {
+          return res.status(500).json({ message: err });
+        });
     })
     .catch(() => {
       return res.status(500).json({ message: 'internal server error' });
     });
+
 };
 export const markAnswersPrefered = (req, res) => {
   const QuestionId = Number(req.params.QuestionId);
