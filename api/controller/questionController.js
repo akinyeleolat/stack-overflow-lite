@@ -97,11 +97,13 @@ export const PostAnswer = (req, res) => {
   console.log(Number(userId));
   let status = 'pending';
   console.log(status);
-  db.none('INSERT INTO ANSWERS  VALUES ($1,$2,$3,$4,$5)', [req.body.answer, Number(QuestionId), Number(userId), status, new Date()])
+  const { Answer } = req.body;
+  console.log(Answer);
+  db.query('INSERT INTO Answers (Answer,QuestionId,userId,status,date)  VALUES ($1,$2,$3,$4,$5)', [Answer, Number(QuestionId), Number(userId), status, new Date()])
     .then(() => {
       res.status(200).json({
         status: 'success',
-        message: 'answer submitted'
+        message: 'answer submitted',
       });
     })
     .catch((err) => {
