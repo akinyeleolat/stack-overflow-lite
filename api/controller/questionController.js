@@ -8,7 +8,7 @@ export const getAllQuestions = (req, res) => {
     .then((data) => {
       return res.status(200).send({
         status: 'success',
-        data: data,
+        data,
         message: 'Retrieved ALL Questions'
       });
     })
@@ -56,22 +56,25 @@ export const getSingleQuestions = (req, res) => {
 
 export const PostQuestion = (req, res) => {
   // console.log("start to get Token")
-  //get Token
-  const token = req.headers.authorization.split(" ")[1];
+  // get Token
+  // const token = req.headers.authorization.split(" ")[1];
 
-  const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  req.userData = decoded;
+  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
+  // req.userData = decoded;
 
   // console.log("end get Token")
+  // req.userData = decoded;
   const { userId } = req.userData;
+
+  const userID = userId;
 
   const { title, details } = req.body;
 
   console.log('title ------>', title);
   console.log('details ------>', details);
-  console.log('userId ------>', userId);
+  console.log('userId ------>', { userId });
 
-  db.query('INSERT INTO questions (title,details,userId,createdAt) VALUES ($1, $2, $3, $4)', [title, details, Number(userId), new Date()])
+  db.query('INSERT INTO questions (title,details,userId,createdAt) VALUES ($1, $2, $3, $4)', [title, details, Number(userID), new Date()])
     .then(() => {
       res.status(200).send({
         status: 'success',
@@ -86,11 +89,11 @@ export const PostAnswer = (req, res) => {
 
   console.log(Number(QuestionId));
   // console.log("start to get Token")
-  //get Token
-  const token = req.headers.authorization.split(" ")[1];
+  // get Token
+  // const token = req.headers.authorization.split(" ")[1];
 
-  const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  req.userData = decoded;
+  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
+  // req.userData = decoded;
 
   // console.log("end get Token")
   const { userId } = req.userData;
@@ -115,11 +118,11 @@ export const deleteQuestion = (req, res) => {
   const { id } = req.params;
   console.log(typeof (id));
   // console.log("start to get Token")
-  //get Token
-  const token = req.headers.authorization.split(" ")[1];
+  // get Token
+  // const token = req.headers.authorization.split(" ")[1];
 
-  const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  req.userData = decoded;
+  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
+  // req.userData = decoded;
 
   // console.log("end get Token")
   const { userId } = req.userData;
@@ -157,10 +160,10 @@ export const markAnswersPrefered = (req, res) => {
   const status = 'Preferred';
   // console.log("start to get Token")
   //get Token
-  const token = req.headers.authorization.split(" ")[1];
+  // const token = req.headers.authorization.split(" ")[1];
 
-  const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  req.userData = decoded;
+  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
+  // req.userData = decoded;
 
   // console.log("end get Token")
   const { userId } = req.userData;
@@ -170,7 +173,7 @@ export const markAnswersPrefered = (req, res) => {
       if (data.length < 1) {
         return res.status(500).json({ message: 'You are not question author' });
       }
-      //then update status
+      // then update status
       db.query('UPDATE Answers SET status=$1  where id=$2 AND QuestionId=$3',
         [status, AnswerId, QuestionId])
         .then(() => {

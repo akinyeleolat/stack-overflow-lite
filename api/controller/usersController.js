@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { db } from '../db/index';
-import * as valid from '../auth/validate';
+import * as valid from '../middleware/validate';
 
 // users model
 
