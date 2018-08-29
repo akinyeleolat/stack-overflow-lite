@@ -11,9 +11,9 @@ router.use(express.json());
 
 //routes
 router.get('/', questionController.getAllQuestions);
-router.get('/:id', questionController.getSingleQuestions);
+router.get('/:QuestionId', questionController.getSingleQuestions);//more work
 router.post('/', checkAuth, questionController.PostQuestion);
-router.post('/:Id/answers', checkAuth, questionController.PostAnswer);
+router.post('/:QuestionId/answers', checkAuth, questionController.PostAnswer);
 router.delete('/:id', checkAuth, questionController.deleteQuestion);
 router.patch('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
 
