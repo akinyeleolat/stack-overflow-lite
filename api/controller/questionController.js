@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 import { db } from '../db/index';
 
 
@@ -9,7 +9,7 @@ export const getAllQuestions = (req, res) => {
       return res.status(200).send({
         status: 'success',
         data,
-        message: 'Retrieved ALL Questions'
+        message: 'Retrieved ALL Questions',
       });
     })
     .catch(() => {
@@ -17,7 +17,7 @@ export const getAllQuestions = (req, res) => {
     });
 };
 export const getSingleQuestions = (req, res) => {
-  //must display answers
+  // must display answers
   const { QuestionId } = req.params;
   const QuestionID = Number(QuestionId);
   console.log(QuestionID);
@@ -35,14 +35,14 @@ export const getSingleQuestions = (req, res) => {
               status: 'success',
               QuestionDetails: data,
               AnswersDetails: answer,
-              message: 'Retrieved single questions'
+              message: 'Retrieved single questions',
             });
           }
           return res.status(200).send({
             status: 'success',
             QuestionDetails: data,
             AnswersDetails: 'No answer posted yet',
-            message: 'Retrieved single questions'
+            message: 'Retrieved single questions',
           });
         })
         .catch(() => {
@@ -98,7 +98,7 @@ export const PostAnswer = (req, res) => {
   // console.log("end get Token")
   const { userId } = req.userData;
   console.log(Number(userId));
-  let status = 'pending';
+  const status = 'pending';
   console.log(status);
   const { Answer } = req.body;
   console.log(Answer);
@@ -136,7 +136,7 @@ export const deleteQuestion = (req, res) => {
       }
       console.log('start delete questions');
       console.log([Number(id)]);
-      //then delete question
+      // then delete question
       db.query('DELETE FROM questions WHERE questions.id = $1', [Number(id)])
         .then((result) => {
           console.log(result);
@@ -159,7 +159,7 @@ export const markAnswersPrefered = (req, res) => {
   const AnswerId = Number(req.params.AnswerId);
   const status = 'Preferred';
   // console.log("start to get Token")
-  //get Token
+  // get Token
   // const token = req.headers.authorization.split(" ")[1];
 
   // const decoded = jwt.verify(token, process.env.SECRET_KEY);
@@ -167,14 +167,14 @@ export const markAnswersPrefered = (req, res) => {
 
   // console.log("end get Token")
   const { userId } = req.userData;
-  //use user ID to know who set the questions
+  // use user ID to know who set the questions
   db.query('SELECT Questions.userId FROM questions WHERE Questions.userId=$1', [Number(userId)])
     .then((data) => {
       if (data.length < 1) {
         return res.status(500).json({ message: 'You are not question author' });
       }
       // then update status
-      db.query('UPDATE Answers SET status=$1  where id=$2 AND QuestionId=$3',
+      db.query('UPDATE Answers SET status=$1  WHERE id=$2 AND QuestionId=$3',
         [status, AnswerId, QuestionId])
         .then(() => {
           res.status(200).json({

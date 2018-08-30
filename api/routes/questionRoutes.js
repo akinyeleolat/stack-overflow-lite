@@ -9,25 +9,21 @@ import checkAuth from '../middleware/userAuth';
 const router = express.Router();
 router.use(express.json());
 
-//routes
+// routes
 router.get('/', questionController.getAllQuestions);
 router.get('/:QuestionId', questionController.getSingleQuestions);//more work
 router.post('/', checkAuth, questionController.PostQuestion);
 router.post('/:QuestionId/answers', checkAuth, questionController.PostAnswer);
 router.delete('/:id', checkAuth, questionController.deleteQuestion);
-router.patch('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
-
-
-
-
+router.put('/:QuestionId/answers/:AnswerId', checkAuth, questionController.markAnswersPrefered);
 
 
 // // Endpoint to get all questons
 // /*router.get('/', (req, res) => {
-// 	pool.query('SELECT * FROM Questions', (err) => {
-// 		if (err) {
-// 			throw err;
-// 		}
+// pool.query('SELECT * FROM Questions', (err) => {
+// if (err) {
+// throw err;
+// 	}
 
 // 		console.log('Questions', res.rows[0]);
 // 	});
@@ -45,26 +41,26 @@ router.patch('/:QuestionId/answers/:AnswerId', checkAuth, questionController.mar
 // 	const Question = {
 // 		id: Questions.length + 1,
 // 		title: req.body.title,
-// 		details: req.body.details,
+// details: req.body.details,
 // 	};
 
-// 	return db.any('INSERT INTO QUESTIONS VALUES ($1,$2,$3) ', [req.body.title, req.body.details, Date()])
-// 		.then((data) => {
-// 			return res.send(data);
-// 		})
-// 		.catch(error => res.status(400).send(error))
+// return db.any('INSERT INTO QUESTIONS VALUES ($1,$2,$3) ', [req.body.title, req.body.details, Date()])
+// .then((data) => {
+// return res.send(data);
+// })
+// .catch(error => res.status(400).send(error))
 // });*/
 // // End point 4 post answer for a question working
 // router.post('/:QuestionId/answers', (req, res, next) => {
-// 	const QId = parseInt(req.params.QuestionId);
+// const QId = parseInt(req.params.QuestionId);
 
-// 	const Answer = {
-// 		id: Answers.length + 1,
-// 		QuestionId: QId,
-// 		answer: req.body.answer,
-// 	};
-// 	Answers.push(Answer);
-// 	res.send(Answer);
+// const Answer = {
+// id: Answers.length + 1,
+// QuestionId: QId,
+// answer: req.body.answer,
+// };
+// Answers.push(Answer);
+// res.send(Answer);
 // });
 // // End point 5 fetch all answer for single question working
 // router.get('/:QuestionId/answers', (req, res) => {

@@ -9,4 +9,4 @@ export default (email) => {
   if (email.match(symbols)) {
     return true;
   }
-}
+};
