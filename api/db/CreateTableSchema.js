@@ -8,14 +8,15 @@ const connectionString = process.env.DATABASE_URL;
 const client = new Client({ connectionString, ssl: true });
 
 client.connect();
-// DROP TABLE IF EXISTS Questions CASCADE;
 
-//   // DROP TABLE IF EXISTS Users CASCADE;
-
-//   // DROP TABEL IF EXISTS Answers CASCADE;
 
 const createTable = () => {
   const query = ` 
+  DROP TABLE IF EXISTS Questions CASCADE;
+
+  DROP TABLE IF EXISTS Users CASCADE;
+
+  DROP TABEL IF EXISTS Answers CASCADE;
   
   CREATE TABLE IF NOT EXISTS users(
   
@@ -23,7 +24,7 @@ const createTable = () => {
   
     fullname VARCHAR(150) NOT NULL,
   
-    username VARCHAR(100) NOT NULL,
+    username VARCHAR(100)UNIQUE NOT NULL,
   
     email VARCHAR(255) UNIQUE NOT NULL,
   
@@ -39,7 +40,7 @@ const createTable = () => {
 
     id SERIAL PRIMARY KEY,
   
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(255) UNIQUE NOT NULL,
   
     details TEXT NOT NULL,
   

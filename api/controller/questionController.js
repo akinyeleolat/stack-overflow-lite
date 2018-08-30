@@ -1,9 +1,9 @@
-// import jwt from 'jsonwebtoken';
+
 import { db } from '../db/index';
 
 
 export const getAllQuestions = (req, res) => {
-  // db.query('SELECT * FROM questions')
+
   db.query('SELECT Questions.id,Questions.title,Questions.details,users.username,Questions.createdAt FROM questions INNER JOIN users ON questions.userId = users.id')
     .then((data) => {
       return res.status(200).send({
@@ -17,17 +17,16 @@ export const getAllQuestions = (req, res) => {
     });
 };
 export const getSingleQuestions = (req, res) => {
-  // must display answers
+
   const { QuestionId } = req.params;
   const QuestionID = Number(QuestionId);
   console.log(QuestionID);
-  // 
+
   db.query('SELECT Questions.id,Questions.title,Questions.details,users.username,Questions.createdAt FROM questions INNER JOIN users ON questions.userId = users.id WHERE Questions.id=$1', [QuestionID])
     .then((data) => {
       if (data.length < 1) {
         return res.status(500).json({ message: 'The questions with this id not found' });
       }
-      // check for the answer posted for that questions
       db.query('SELECT Answers.id,Answers.answer,Answers.status,users.username,Answers.date FROM Answers INNER JOIN users ON Answers.userId = users.id WHERE Answers.QuestionId=$1', [QuestionID])
         .then((answer) => {
           if (answer.length >= 1) {
@@ -55,15 +54,6 @@ export const getSingleQuestions = (req, res) => {
 }
 
 export const PostQuestion = (req, res) => {
-  // console.log("start to get Token")
-  // get Token
-  // const token = req.headers.authorization.split(" ")[1];
-
-  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  // req.userData = decoded;
-
-  // console.log("end get Token")
-  // req.userData = decoded;
   const { userId } = req.userData;
 
   const userID = userId;
@@ -86,16 +76,7 @@ export const PostQuestion = (req, res) => {
 
 export const PostAnswer = (req, res) => {
   const { QuestionId } = req.params;
-
   console.log(Number(QuestionId));
-  // console.log("start to get Token")
-  // get Token
-  // const token = req.headers.authorization.split(" ")[1];
-
-  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  // req.userData = decoded;
-
-  // console.log("end get Token")
   const { userId } = req.userData;
   console.log(Number(userId));
   const status = 'pending';
@@ -117,14 +98,7 @@ export const PostAnswer = (req, res) => {
 export const deleteQuestion = (req, res) => {
   const { id } = req.params;
   console.log(typeof (id));
-  // console.log("start to get Token")
-  // get Token
-  // const token = req.headers.authorization.split(" ")[1];
 
-  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  // req.userData = decoded;
-
-  // console.log("end get Token")
   const { userId } = req.userData;
   console.log(userId);
   // USE user ID to know who can delete questions
@@ -158,12 +132,6 @@ export const markAnswersPrefered = (req, res) => {
   const QuestionId = Number(req.params.QuestionId);
   const AnswerId = Number(req.params.AnswerId);
   const status = 'Preferred';
-  // console.log("start to get Token")
-  // get Token
-  // const token = req.headers.authorization.split(" ")[1];
-
-  // const decoded = jwt.verify(token, process.env.SECRET_KEY);
-  // req.userData = decoded;
 
   // console.log("end get Token")
   const { userId } = req.userData;

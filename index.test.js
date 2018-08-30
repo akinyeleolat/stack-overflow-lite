@@ -1,14 +1,19 @@
 
 import supertest from 'supertest';
+import jwt from 'jsonwebtoken';
 // import app from './api/server';
 import server from './api/server';
 
 const request = supertest.agent(server);
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJJZCI6OSwiaWF0IjoxNTM1NjIyOTI3LCJleHAiOjE1MzU2MjY1Mjd9.uyqDC_yg6WVCWkfVln_SrFVsFEJZsM-xJ59WyJkmoZo';
+
+const username = 'admin';
+const userpassword = 'admin';
+const userId = 6;
+const token = jwt.sign({ username, userId }, process.env.SECRET_KEY, { expiresIn: '1h' });
+
 
 const loginData = {
-	username: 'admin',
-	userpassword: 'admin',
+	userId, username, userpassword, token
 };
 
 const questionData = {
@@ -31,7 +36,7 @@ const SignUpData = {
 	email: 'admin@admin.com',
 	password: 'admin',
 	createdAt: new Date(),
-}
+};
 // Get all questions
 describe('GET All Questions', () => {
 	it('should return status 200', (done) => {
