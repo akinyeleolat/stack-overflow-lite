@@ -9,7 +9,7 @@
     ]
   },
   "scripts": {
-    "test": "mocha --require babel-core/register index.test.js --timeout 10000",
+    "test": "mocha --require babel-core/register index.test.js --timeout 500000 --exit",
     "cover": "istanbul cover _mocha",
     "babel-node": "babel-node --presets=env",
     "start": "nodemon --exec npm run babel-node -- ./starter.js",
@@ -31,7 +31,6 @@
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "joi": "^13.6.0",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
     "morgan": "^1.9.0",
