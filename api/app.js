@@ -19,9 +19,9 @@ app.use(morgan('dev'));
 app.use('/api/questions', questionRoutes);
 app.use('/api/users', userRoutes);
 
-// app error handling
+
 app.all((req, res) => {
-	const error = new Error('page not found');
+	const error = new Error('Welcome to stackoverflow lite');
 	res.status(404).send(error);
 	next(error);
 });

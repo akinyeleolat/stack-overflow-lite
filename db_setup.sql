@@ -1,5 +1,3 @@
-\c
-d8icm1s1547dth;
 
 DROP TABLE IF EXISTS Questions
 CASCADE;
@@ -14,28 +12,41 @@ CASCADE;
 CREATE TABLE
 IF NOT EXISTS users
 (
+  
     id SERIAL PRIMARY KEY,
+  
     fullname VARCHAR
 (150) NOT NULL,
+  
     username VARCHAR
-(100) NOT NULL,
+(100) UNIQUE NOT NULL,
+  
     email VARCHAR
 (255) UNIQUE NOT NULL,
+  
     userpassword VARCHAR
 (255) NOT NULL,
+  
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+
+
   );
 
 
 CREATE TABLE
 IF NOT EXISTS Questions
 (
+
     id SERIAL PRIMARY KEY,
+  
     title VARCHAR
-(255) NOT NULL,
+(255) UNIQUE NOT NULL,
+  
     details TEXT NOT NULL,
+  
     userId int REFERENCES users
 (id),
+  
     createdAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
 
 
@@ -61,4 +72,3 @@ IF NOT EXISTS Answers
     date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP 
 
      );
-     
