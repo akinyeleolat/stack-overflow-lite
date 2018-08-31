@@ -14,57 +14,85 @@ export const SignUp = (req, res) => {
   console.log('createdAt------->', new Date());
 
   if (!valid(email)) {
-    res.json({ message: 'Enter Valid Email' });
+    res.json({
+      status: 'Email',
+      message: 'Enter Valid Email',
+    });
     return;
   }
-
-  console.log('We re about to query select');
+  if ((!username) || (!fullname) || (!password)) {
+    res.json({
+      status: 'Blank Data',
+      message: 'Users\' data cannot be blank'
+    });
+    return;
+  }
   db.any('SELECT * FROM users WHERE email = $1', [email])
     .then((user) => {
       if (user.length >= 1) {
         return res.status(409).json({
-          message: 'users email already exist',
+          status: 'success',
+          message: 'users already exist',
         });
       }
-      console.log('We re about to end query select');
 
       const userpassword = bcrypt.hashSync(password, 10);
-      console.log('This is our hashed password', userpassword);
 
+      db.query('INSERT INTO users (fullname,username,email,userpassword, createdat) VALUES ($1, $2, $3, $4, $5) RETURNING id', [fullname, username, email, userpassword, new Date()])
+        .then((id) => {
 
-      db.query('INSERT INTO users (fullname,username,email,userpassword, createdat) VALUES ($1, $2, $3, $4, $5)', [fullname, username, email, userpassword, new Date()])
-        .then(() => res.status(200)
-          .send({
-            status: 'success',
-            message: 'users created',
-          }))
-        .catch((error) => res.status(500).json({
+          const token = jwt.sign({
+            username,
+            id,
+          }, process.env.SECRET_KEY,
+            {
+              expiresIn: '1h',
+            });
+          res.status(200)
+            .send({
+              status: 'success',
+              fullname,
+              username,
+              email,
+              token,
+              message: 'user created',
+            })
+        })
+        .catch(error => res.status(500).json({
           status: 'Signup error',
           message: error.message,
         }));
     })
-    .catch((error) => res.status(500).json({
+    .catch(error => res.status(500).json({
       status: 'Signup error',
       message: error.message,
     }));
 };
 
 export const SignIn = (req, res) => {
+
   const {
     username, userpassword,
   } = req.body;
 
+  if ((!username) || (!userpassword)) {
+    res.json({
+      status: 'Blank Data',
+      message: 'Users\' data cannot be blank'
+    });
+    return;
+  }
 
   db.any('SELECT * FROM users WHERE username = $1', [username])
     .then((user) => {
       if (user.length < 1) {
         return res.status(404).json({
+          status: 'success',
           message: 'Auth failed',
         });
       }
 
       const result = bcrypt.compareSync(userpassword, user[0].userpassword);
-      console.log(result);
       if (result) {
         const token = jwt.sign({
           username: user[0].username,
@@ -75,11 +103,14 @@ export const SignIn = (req, res) => {
           });
 
         return res.status(200).json({
+          status: 'success',
+          user,
           message: 'Auth Successful',
           Token: token,
         });
       }
       return res.status(401).json({
+        status: 'failed',
         message: 'Auth Failed',
       });
     })

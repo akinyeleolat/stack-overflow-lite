@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 
-export default (req, res) => {
+export default (req) => {
   const token = req.headers.authorization.split(' ')[1];
-  // console.log('Token----------->', token);
+
   const decoded = jwt.verify(token, process.env.SECRET_KEY);
   req.userData = decoded;
 };

@@ -11,10 +11,15 @@ const userpassword = 'admin';
 const userId = 6;
 const token = jwt.sign({ username, userId }, process.env.SECRET_KEY, { expiresIn: '1h' });
 
-
-const loginData = {
-	userId, username, userpassword, token
+const SignUpData = {
+	fullname: 'admin admin',
+	username: 'admin',
+	email: 'admin@admin.com',
+	password: 'admin',
+	createdAt: new Date(),
 };
+
+const loginData = { userId, username, userpassword, token, };
 
 const questionData = {
 	title: 'title test',
@@ -30,13 +35,7 @@ const AnswerData = {
 	status: 'pending',
 	createdAt: new Date(),
 };
-const SignUpData = {
-	fullname: 'admin admin',
-	username: 'admin',
-	email: 'admin@admin.com',
-	password: 'admin',
-	createdAt: new Date(),
-};
+
 // Get all questions
 describe('GET All Questions', () => {
 	it('should return status 200', (done) => {
