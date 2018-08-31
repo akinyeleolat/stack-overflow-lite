@@ -54,6 +54,7 @@ body {
   display: inline-block;
   border: 1px solid #2196F3;
 }
+
 .button {
     color: white;
     width:25%;
@@ -123,9 +124,7 @@ body {
     padding: 20px;
     text-align: center;
     margin-top: -6px;
-    margin: auto;
-     background: linear-gradient(to right, #2196f3 , #21ccff);
-  /*background-image:  url('../UI/assets/img/bg2.jpgsets/img/bg.jpg') bottom;*/
+    margin: auto;     
 }
 
 .topflex-container {
@@ -176,7 +175,7 @@ border: 1px solid #ccc;
 border-radius: 4px;
 box-sizing: border-box;
 text-align: center;
-background-color: #ccc;
+background-color: #fff;
 float: right;
 height: 80%;
 overflow: hidden;
@@ -189,9 +188,8 @@ border: 1px solid #ccc;
 border-radius: 4px;
 box-sizing: border-box;
 text-align: center;
-background-color: #ccc;
-height: 80%;
-overflow: hidden;
+background-color: #fff;
+height: 100%;
 float:left;
 width:80%;
 margin-left: 10%
@@ -378,7 +376,6 @@ a:hover#menu-icon {
 .footer {
     padding: 20px;
     background: #fff;
-    margin-top: 20px;
     display: block;
 }
 .footer a {
@@ -619,7 +616,23 @@ box-sizing: border-box;
 margin-top: 6px;
 margin-bottom: 6px;
 background: lightyellow;
-color: blue;
+font-size: 15px;
+font-family: FontAwesome;
+
+}
+.form_div textarea
+{
+width:90%;
+height:90%;
+border-radius:2px;
+padding-left:5px;
+padding: 14px;
+border: 1px solid #2196F3;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 6px;
+background: lightyellow;
 font-size: 15px;
 font-family: FontAwesome;
 

@@ -8,32 +8,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
+<header>
+  <nav class="topnav">
 
-<body>
-  <header>
-    <nav class="topnav">
+    <img class="img" src="./assets/img/logo.png" hspace="0" vspace="0">
+    <font class="header">
+      <span class="span">Stack Overflow</span> Lite
+    </font>
+    <ul>
+      <a class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+      <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+      <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+      <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+      <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
 
-      <img class="img" src="./assets/img/logo.png" hspace="0" vspace="0">
-      <font class="header">
-        <span class="span">Stack Overflow</span> Lite
-      </font>
-      <ul>
-        <a class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
-        <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
-        <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
-
-        <div class="search-container">
-          <form>
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
-      </ul>
-    </nav>
-  </header>
-
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </ul>
+  </nav>
+</header>
+<section>
   <div class="row">
     <div class="leftcolumn">
       <div class="card">
@@ -81,8 +79,8 @@
           <div class="pageform">
             <div class="form_div">
               <form method="post">
-                <h3><i class="fa fa-reply" aria-hidden="true"></i>Post Your Answer</h3>
-                <p><textarea placeholder="Detail"></textarea></p>
+                <h3>Post Your Answer</h3>
+                <p><textarea placeholder="Detail" rows="10" cols="30"></textarea></p>
                 <p><input type="submit" value="Post Your Answer"></p>
               </form>
             </div>
@@ -121,18 +119,18 @@
       </div>
     </div>
   </div>
-  <footer>
-    <nav class="topnav">
+</section>
+<footer>
+  <nav class="topnav">
 
-      <img src="./assets/img/stack.png" hspace="0" vspace="0">
-      <ul>
-        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
-        <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
-        <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
-      </ul>
-    </nav>
-  </footer>
-</body>
+    <img src="./assets/img/stack.png" hspace="0" vspace="0">
+    <ul>
+      <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+      <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+      <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+      <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
+    </ul>
+  </nav>
+</footer>
 
 </html>
