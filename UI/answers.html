@@ -1,141 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>StackOverflow-lite</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel = "stylesheet" type = "text/css" href = "./assets/css/style.css" />
+  <title>StackOverflow-lite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
-<body>
-	<header>
-<nav class="topnav">
-	
-<img class="img" src="./assets/img/logo.png"  hspace="0" vspace="0">
-<font class="header">	
-  <span class="span">Stack Overflow</span> Lite
-</font>
- <ul>
-        <a  class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
-       <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
-        
- <div class="search-container">
-    <form>
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form></div></ul>
+<header>
+  <nav class="topnav">
+
+    <img class="img" src="./assets/img/logo.png" hspace="0" vspace="0">
+    <font class="header">
+      <span class="span">Stack Overflow</span> Lite
+    </font>
+    <ul>
+      <a class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+      <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+      <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+      <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+      <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
+
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </ul>
   </nav>
 </header>
+<section>
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <div class="QuestionDiv">
+          <h3>Featured Questions</h3>
 
- <div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <div class="QuestionDiv"><h3>Featured Questions</h3>
+          <a class="button" href="./ask_question.html" style="float:right;color:white;width:25%"><i class="fa fa-fw fa-user"></i>ASK
+            QUESTION
+          </a>
+          <a class="button" href="./view_questions.html" style="float:right;color:white;width:25%"><i class="fa fa-fw fa-user"></i>VIEW
+            QUESTION
+          </a></div>
+        <div class="topflex-container">
+          <div>200 Interesting</div>
+          <div>360 Hot</div>
+          <div>100 Tags</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="questions">
+          <p id="answertitle" style="font-size:20px; "><a href="answers.html">Question: Android Google Maven repository not
+              found
+            </a></p>
 
-      	      <a class="button" href="./ask_question.html" style="float:right;color:white;width:25%"><i class="fa fa-fw fa-user"></i>ASK QUESTION</a> 
-              <a class="button" href="./view_questions.html" style="float:right;color:white;width:25%"><i class="fa fa-fw fa-user"></i>VIEW QUESTION</a></div>
-  <div class="topflex-container">
-  <div>200 Interesting</div>
-  <div>360 Hot</div>
-  <div>100 Tags</div>  
-</div>	
+          <p id="answerstxt">I just joined stackoverflow for this question. I've been doing a lot of research and I just
+            can't seem to find the solution. I have a main file and a function file (because I need to use the function again).
+            In that function file I use a module called Pygame, which I also use in the main file. Though I imported the
+            file in both scripts: the main file seems to recognize however the function file gives me: builtins.NameError:
+            name 'pygame' is not defined I've seen that people use 'if __name__ = "__main__"'. Could this be the used to
+            solve this problem? I'm completely stuck on this one. Is it even possible? I am using python version 2.7.15.
+            I would call myself a beginner, though I have some experience already. Sorry for any inconvenience, I hope I
+            can notify you on any information needed. Thanks</p>
+          <p id="votes">20 votes</p>
+          <p id="answers">10 answers</p>
+          <p id="tag">android cordova google-play-services</p>
+          <p id="response">
+            <b><u><i>Austin Reyes:</i></u></b>
+            In modern versions of MySQL (>= 8.0.4) the query would be relatively simple: SELECT GROUP_CONCAT( DISTINCT JSON_QUOTE(`der`.`names`)
+            ) `names` FROM `my_table`, JSON_TABLE(`my_table`.`json_data`, '$[*]' COLUMNS( `names` VARCHAR(10) PATH '$.name'
+            ) ) `der` ORDER BY `names`; See db-fiddle. However, in older versions, it's not that simple, one option may be
+            to use a temporary table and a prepared statement: SET @`ddl` := CONCAT('INSERT INTO `my_table` VALUES ', (SELECT
+            GROUP_CONCAT( REPLACE( REPLACE( REPLACE( `json_data` -> '$**.name', '[', '('), ']', ')'), ',', '),(') ) FROM
+            `my_table` ) ); </p>
+          <p id="tag"><b><i>Austin Reyes</i></b></p>
+          <div class="pageform">
+            <div class="form_div">
+              <form method="post">
+                <h3>Post Your Answer</h3>
+                <p><textarea placeholder="Detail" rows="10" cols="30"></textarea></p>
+                <p><input type="submit" value="Post Your Answer"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-    	<div class="questions">
-      <p id="answertitle"><a href="answers.html">Android Google Maven repository not found</a></p>
-      
-      <p id="answerstxt">I just joined stackoverflow for this question. I've been doing a lot of research and I just can't seem to find the solution.
-
-I have a main file and a function file (because I need to use the function again). In that function file I use a module called Pygame, which I also use in the main file. Though I imported the file in both scripts: the main file seems to recognize however the function file gives me: builtins.NameError: name 'pygame' is not defined
-
-I've seen that people use 'if __name__ = "__main__"'. Could this be the used to solve this problem?
-
-I'm completely stuck on this one. Is it even possible? I am using python version 2.7.15. I would call myself a beginner, though I have some experience already. Sorry for any inconvenience, I hope I can notify you on any information needed. Thanks</p>
-<p id="votes">20 votes</p>
-      <p id="answers">10 answers</p>
-<p id="tag">android cordova google-play-services</p>
-<p id="response">
-<b><u><i>Austin Reyes:</i></u></b> 
-In modern versions of MySQL (>= 8.0.4) the query would be relatively simple:
-
-SELECT
-  GROUP_CONCAT(
-    DISTINCT JSON_QUOTE(`der`.`names`)
-  ) `names`
-FROM
-  `my_table`,
-  JSON_TABLE(`my_table`.`json_data`,
-    '$[*]' COLUMNS(
-      `names` VARCHAR(10) PATH '$.name'
-    )
-  ) `der`
-ORDER BY
-  `names`;
-See db-fiddle.
-
-However, in older versions, it's not that simple, one option may be to use a temporary table and a prepared statement:
-
-SET @`ddl` := CONCAT('INSERT INTO `my_table` VALUES ',
-  (SELECT
-    GROUP_CONCAT(
-      REPLACE(
-        REPLACE(
-          REPLACE(
-            `json_data` -> '$**.name',
-          '[', '('),
-        ']', ')'),
-      ',', '),(')
-    )
-  FROM
-    `my_table`
-  )
-); </p>
-<p id="tag"><b><i>Austin Reyes</i></b></p>
-      <div class="pageform" >
-<div class="form_div">
-<form method="post">
-  <h3><i class="fa fa-reply" aria-hidden="true"></i>Post Your Answer</h3>
-<p><textarea placeholder="Detail"></textarea></p>
-<p><input type="submit" value="Post Your Answer"></p> 
-</form>
-</div>  
-</div>
-</div>
-    </div>
-  </div>
-  <div class="rightcolumn">
-    <div class="card">
-      <h3>Top Questions</h3>
-      <p><ul>
-                        <a href="#">What is a HTML ?</a>
-                        <a href="#">What is a CSS ?</a>
-                        <a href="#">What is a JS ?</a>
-                        <a href="#">What is a PHP ?</a>
-                        <a href="#">What is a NodeJS ?</a>
-                        <a href="#">What is a Python ?</a>
-                    </ul></p></div>
-    <div class="card">
-      <h3>Recent Questions</h3><p>    
-      <ul>
-                        <a href="#">What is a HTML ?</a>
-                        <a href="#">What is a CSS ?</a>
-                        <a href="#">What is a JS ?</a>
-                        <a href="#">What is a PHP ?</a>
-                        <a href="#">What is a NodeJS ?</a>
-                        <a href="#">What is a Python ?</a>
-                    </ul></p>
+    <div class="rightcolumn">
+      <div class="profileflex-container">
+        <div class="card">
+          <h3>Top Questions</h3>
+          <p>
+            <ul>
+              <a href="#">What is a HTML ?</a>
+              <a href="#">What is a CSS ?</a>
+              <a href="#">What is a JS ?</a>
+              <a href="#">What is a PHP ?</a>
+              <a href="#">What is a NodeJS ?</a>
+              <a href="#">What is a Python ?</a>
+            </ul>
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <ul>
+              <h3>Top Questions</h3>
+              <a href="#">What is a HTML ?</a>
+              <a href="#">What is a CSS ?</a>
+              <a href="#">What is a JS ?</a>
+              <a href="#">What is a PHP ?</a>
+              <a href="#">What is a NodeJS ?</a>
+              <a href="#">What is a Python ?</a>
+            </ul>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<footer class="footer">
-  <img  src="./assets/img/Stack.png"  hspace="0" vspace="0"><font class="header">	
-  <span class="span">Developed By</span> Akinyele Oluwatosin A | 
-</font>        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i> Login |</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up |</a>
-       <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i> Ask Question</a>
-        
+</section>
+<footer>
+  <nav class="topnav">
+
+    <img src="./assets/img/stack.png" hspace="0" vspace="0">
+    <ul>
+      <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+      <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+      <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+      <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
+    </ul>
+  </nav>
 </footer>
-</body>
+
 </html>

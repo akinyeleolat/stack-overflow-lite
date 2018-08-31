@@ -54,6 +54,7 @@ body {
   display: inline-block;
   border: 1px solid #2196F3;
 }
+
 .button {
     color: white;
     width:25%;
@@ -84,6 +85,36 @@ body {
   box-shadow: 0 4px #666;
   transform: translateY(4px);
 }
+.questionbutton {
+    color: white;
+    width:25%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+   display: block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #2196f3;
+  box-shadow: 0 3px #999;
+  font-size:14px;
+  float:right;
+}
+
+.questionbutton:hover {
+	background-color: #3e8e41;
+	color:black;
+}
+
+.questionbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
+}
 .landing {
   overflow: hidden;
   /* Position the navbar at the top of the page */
@@ -93,18 +124,9 @@ body {
     padding: 20px;
     text-align: center;
     margin-top: -6px;
-    margin: auto;
-     background: linear-gradient(to right, #2196f3 , #21ccff);
-    /*background-image: : url('./assets/img/bg.jpg');*/
+    margin: auto;     
 }
-/*#landing-bg{
-  background-image: url("assets/img/bg.jpg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-}*/
+
 .topflex-container {
   display: flex;
   width: 40%;
@@ -143,8 +165,6 @@ body {
 	width:50%;
 	color:#fff;
 	text-align: left;
-	border: 1px solid #2196F3;
-	border-radius: 4px;
 }
 .myform{
 width: 50%;
@@ -155,7 +175,7 @@ border: 1px solid #ccc;
 border-radius: 4px;
 box-sizing: border-box;
 text-align: center;
-background-color: #ccc;
+background-color: #fff;
 float: right;
 height: 80%;
 overflow: hidden;
@@ -168,9 +188,8 @@ border: 1px solid #ccc;
 border-radius: 4px;
 box-sizing: border-box;
 text-align: center;
-background-color: #ccc;
-height: 80%;
-overflow: hidden;
+background-color: #fff;
+height: 100%;
 float:left;
 width:80%;
 margin-left: 10%
@@ -256,31 +275,18 @@ a:hover#menu-icon {
 
 }
 
-
 @media screen and (max-width: 500px) {
 	.header {
 
 		position: absolute;
 
 	}
-/*	.img{
-
-		position: absolute;
-		display: none;
-
-	}
-
-	#menu-icon {
-
-		display:inline-block;
-
-	}*/
   .topnav .search-container {
     float: none;
   }
   .topnav a, .topnav input[type=text], .topnav .search-container button {
     float: none;
-    display: block;
+    display: inline-block;
     text-align: left;
     width: 100%;
     margin: 0;
@@ -327,9 +333,9 @@ a:hover#menu-icon {
   padding: 0px;
   margin: 0px;
   text-align: center;
-  display:inline-block;
+  display:block;
   vertical-align:top;
-  float:right;
+  float:left;
 
 }
 
@@ -370,20 +376,19 @@ a:hover#menu-icon {
 .footer {
     padding: 20px;
     background: #fff;
-    margin-top: 20px;
+    display: block;
 }
 .footer a {
   color: black;
-  text-align: center;
+  display: block;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 15px;
   margin-top: 6px;
   margin-bottom: 6px;
-  display: inline-block;
-    vertical-align: top;
+  vertical-align: top;
     margin-right: 20px;        /* if you want it to take the full height of the bar */
-
 }
 .footer a:hover {
   background-color: #ddd;
@@ -463,7 +468,7 @@ a:hover#menu-icon {
 #answertitle{
 	padding: 5px; 
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
     width: 75%;
   margin-top: 6px;
   margin-bottom: 6px;
@@ -481,11 +486,11 @@ a:hover#menu-icon {
   margin-top: 6px;
   margin-bottom: 6px;
   display: inline-block;
-  vertical-align: top;  
+  vertical-align: top; 
+  border-bottom: #2196f3 1px solid; 
 }
 .questions a {
     padding: 5px; 
-    text-align: center;
     font-size: 15px;
     width: 75%;
   margin-top: 6px;
@@ -517,6 +522,51 @@ a:hover#menu-icon {
         float: none;
         width: 100%;
     }
+    .topnav footer{
+      display:none;
+    }
+    .myform{
+      display:none;
+    }
+    .welcometext{
+      width:100%;
+    }
+    .topflex-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #2196f3;
+}
+
+.topflex-container > div {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 5px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+}
+.questionbutton {
+    color: white;
+    width:50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+   display: block;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: #2196f3;
+  box-shadow: 0 3px #999;
+  font-size:14px;
+  float:right;
+}
 }
 #wrapper
 {
@@ -566,8 +616,25 @@ box-sizing: border-box;
 margin-top: 6px;
 margin-bottom: 6px;
 background: lightyellow;
-color: blue;
 font-size: 15px;
+font-family: FontAwesome;
+
+}
+.form_div textarea
+{
+width:90%;
+height:90%;
+border-radius:2px;
+padding-left:5px;
+padding: 14px;
+border: 1px solid #2196F3;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 6px;
+background: lightyellow;
+font-size: 15px;
+font-family: FontAwesome;
 
 }
 .form_div input[type="submit"]

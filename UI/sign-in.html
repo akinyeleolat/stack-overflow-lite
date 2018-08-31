@@ -1,85 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>StackOverflow-lite</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel = "stylesheet" type = "text/css" href = "./assets/css/style.css" />
+  <title>StackOverflow-lite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
-<body>
-<nav class="topnav">
-	
-<img class="img" src="./assets/img/logo.png"  hspace="0" vspace="0">
-<font class="header">	
-  <span class="span">Stack Overflow</span> Lite
-</font>
- <ul>
-        <a  href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-        <a class="active" href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
-       <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
-        
- <div class="search-container">
-    <form>
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form></div></ul>
+<header>
+  <nav class="topnav">
+
+    <img class="img" src="./assets/img/logo.png" hspace="0" vspace="0">
+    <font class="header">
+      <span class="span">Stack Overflow</span> Lite
+    </font>
+    <ul>
+      <a href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+      <a class="active" href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+      <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+      <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+      <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </ul>
   </nav>
-<div class="landing">
-	
-   </div>
-</div>
- <div class="row">
-  <div class="leftcolumn">
+</header>
+<main>
+  <div class="row">
     <div class="card">
-            <div class="pageform" >
-<div class="form_div">
-<form method="post">
-	<h2><i class="fa fa-user-plus"></i>Login </h2>
-<p><i class="fa fa-fw fa-envelope"></i><input type="text" placeholder="Email"></p>
-<p><i class="fa fa-unlock"></i><input type="password" placeholder="Password"></p>
-<p><input type="submit" value="Login"></p>
-<p><a href="./signup.html"><i class="fa fa-fw fa-user"></i>New User, Create Account</a></p> 
-</form>
-</div>  
-</div>
+      <div class="pageform">
+        <div class="form_div">
+          <form method="post">
+            <h2>Login </h2>
+            <p><input type="text" placeholder="Email"></p>
+            <p><input type="password" placeholder="Password"></p>
+            <p><input type="submit" value="Login"></p>
+            <p><a href="./signup.html"></i>New User, Create Account</a></p>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-   <div class="rightcolumn">
-    <div class="card">
-      <h3>Top Questions</h3>
-      <p><ul>
-                        <a href="#">What is a HTML ?</a>
-                        <a href="#">What is a CSS ?</a>
-                        <a href="#">What is a JS ?</a>
-                        <a href="#">What is a PHP ?</a>
-                        <a href="#">What is a NodeJS ?</a>
-                        <a href="#">What is a Python ?</a>
-                    </ul></p></div>
-    <div class="card">
-      <h3>Recent Questions</h3><p>    
-      <ul>
-                        <a href="#">What is a HTML ?</a>
-                        <a href="#">What is a CSS ?</a>
-                        <a href="#">What is a JS ?</a>
-                        <a href="#">What is a PHP ?</a>
-                        <a href="#">What is a NodeJS ?</a>
-                        <a href="#">What is a Python ?</a>
-                    </ul></p>
-    </div>
-  </div>
-  
-</div>
 
+  </div>
+</main>
+<footer>
+  <nav class="footer">
 
-<div class="footer">
-  <img  src="./assets/img/Stack.png"  hspace="0" vspace="0"><font class="header">	
-  <span class="span">Developed By</span> Akinyele Oluwatosin A
-</font>        <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i> Login|</a>
-        <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up|</a>
-       <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i> Ask Question</a>
-        
-</div>
-</body>
+    <img src="./assets/img/stack.png" hspace="0" vspace="0">
+    <ul>
+      <a href="./sign-in.html"><i class="fa fa-fw fa-user"></i>Login</a>
+      <a href="./signup.html"><i class="fa fa-fw fa-user"></i>Sign Up</a>
+      <a href="./ask_question.html"><i class="fa fa-fw fa-question"></i>Ask Question</a>
+      <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
+    </ul>
+  </nav>
+</footer>
+
 </html>
