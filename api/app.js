@@ -21,7 +21,7 @@ app.use('/api/users', userRoutes);
 
 
 app.all((req, res) => {
-	const error = new Error('Welcome to stackoverflow lite');
+	const error = new Error('Welcome to stackoverflow lite, the resources is not found');
 	res.status(404).send(error);
 	next(error);
 });
