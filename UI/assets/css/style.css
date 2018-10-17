@@ -303,11 +303,11 @@ margin-left: 10%
   color: white;
 }
 
-.topnav .search-container {
+ .search-container {
   float: right;
 }
 
-.topnav input[type=text] {
+.search-container input[type=text] {
     width: 75%;
     padding: 14px;
     border: 1px solid #2196F3;
@@ -320,7 +320,7 @@ margin-left: 10%
   font-size: 15px;
   }
 
-.topnav .search-container button {
+ .search-container button {
   float: right;
   padding: 14px 16px;
   margin-top: 6px;
@@ -370,6 +370,9 @@ a:hover#menu-icon {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
+  .button_1{
+    width:100%;
+  }
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -387,7 +390,8 @@ a:hover#menu-icon {
     float: right;
     width: 25%;
     background-color: #fff;
-    padding-left: 20px;
+    padding-top: 2px;
+    margin-top:5px;
     border-radius: 4px;
 }
 
