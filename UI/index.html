@@ -8,31 +8,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
+<body>
 <header>
-  <nav class="topnav">
-
-    <img src="./assets/img/stack.png" hspace="0" vspace="0">
+  <div class="container">
+      <div id="branding"><h1><span class="highlight">Learning</span> Hub Naija</h1></div>
+  <nav>
     <ul>
       <a class="active" href="./index.html"><i class="fa fa-fw fa-home"></i>Home</a>
       <a href="#login" rel="modal:open"><i class="fa fa-fw fa-user"></i>Login</a>
       <a href="#signup" rel="modal:open"><i class="fa fa-fw fa-user"></i>Sign Up</a>
       <a href="#ask_question" rel="modal:open"><i class="fa fa-fw fa-question"></i>Ask Question</a>
       <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
-
-      <div class="search-container">
-        <form>
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
     </ul>
   </nav>
+  </div>
 </header>
-<section>
-  <div class="landing">
+<section id="showcase">
+  <div class="container">
     <div class="welcometext">
+    <h1>Built for Developers</h1>
       <p>
-        <h2>Be a Long Life Learner</h2>
         Access your tech solutions on the go with Stack Over Lite. Get updates for similar solutions. Join the world’s largest developer
         community.
       </p>
@@ -49,17 +44,28 @@
       </div>
     </div>
   </div>
+</section>
+<section id="search">
+    <div class="container">
+        <div class="topflex-container">
+            <div>200 Interesting</div>
+            <div>360 Hot</div>
+            <div>100 Tags</div>
+          </div>
+        <form>
+            <input type="text" placeholder="Search questions" />
+            <button type="submit" class="button_1">Search</button>
+        </form>
+    </div>
+</section>
+<section>
   <div class="row">
     <div class="leftcolumn">
       <div class="card">
         <h3>Featured Questions</h3>
       </div>
       <div class="card">
-        <div class="topflex-container">
-          <div>200 Interesting</div>
-          <div>360 Hot</div>
-          <div>100 Tags</div>
-        </div>
+        
         <div class="questions">
           <p id="votes">20 votes</p>
           <p id="answers">10 answers</p>
@@ -125,57 +131,60 @@
         </div>
       </div>
     </div>
-
-  </div>
-  <div id="login" class="modal">
-    <div class="pageform">
-      <div class="form_div">
-        <form method="post">
-          <h2>Login </h2>
-          <p><input type="text" placeholder="Email"></p>
-          <p><input type="password" placeholder="Password"></p>
-          <p><input type="submit" value="Login"></p>
-        </form>
-      </div>
+  </section>
+      <section>
+      <div id="login" class="modal">
+          <div class="pageform">
+            <div class="form_div">
+              <form method="post">
+                <h2>Login </h2>
+                <p><input type="text" placeholder="Email"></p>
+                <p><input type="password" placeholder="Password"></p>
+                <p><input type="submit" value="Login"></p>
+              </form>
+            </div>
+          </div>
+      
+        </div>
+        <div id="signup" class="modal">
+          <div class="pageform">
+            <div class="form_div">
+              <form method="post">
+                <h2></i>Create Account </h2>
+                <p><input type="text" placeholder="Username"></p>
+                <p><input type="text" placeholder="Name"></p>
+                <p><input type="text" placeholder="Email"></p>
+                <p><input type="password" placeholder="Password"></p>
+                <p><input type="password" placeholder="Confirm Password"></p>
+                <p><input type="submit" value="SIGNUP"></p>
+                <p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="ask_question" class="modal">
+          <div class="pageform">
+            <div class="form_div">
+              <form method="post">
+                <h2>
+                  <h2>Post Question </h2>
+                  <p><input type="text" placeholder="Title"></p>
+                  <p><textarea placeholder="Detail" rows="10" cols="30"></textarea>></textarea></p>
+                  <p><input type="text" placeholder="Tags: Separate your tags with commas e.g ruby, java"></p>
+                  <p><input type="submit" value="Submit"></p>
+              </form>
+            </div>
+          </div>
+        </div>
     </div>
 
-  </div>
-  <div id="signup" class="modal">
-    <div class="pageform">
-      <div class="form_div">
-        <form method="post">
-          <h2></i>Create Account </h2>
-          <p><input type="text" placeholder="Username"></p>
-          <p><input type="text" placeholder="Name"></p>
-          <p><input type="text" placeholder="Email"></p>
-          <p><input type="password" placeholder="Password"></p>
-          <p><input type="password" placeholder="Confirm Password"></p>
-          <p><input type="submit" value="SIGNUP"></p>
-          <p>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div id="ask_question" class="modal">
-    <div class="pageform">
-      <div class="form_div">
-        <form method="post">
-          <h2>
-            <h2>Post Question </h2>
-            <p><input type="text" placeholder="Title"></p>
-            <p><textarea placeholder="Detail" rows="10" cols="30"></textarea>></textarea></p>
-            <p><input type="text" placeholder="Tags: Separate your tags with commas e.g ruby, java"></p>
-            <p><input type="submit" value="Submit"></p>
-        </form>
-      </div>
-    </div>
   </div>
 </section>
 
 <footer>
-  <nav class="topnav">
-
-    <img src="./assets/img/stack.png" hspace="0" vspace="0">
+  <div class="container">
+  <p>Learning Hub, Copyright &copy; 2018</p>
+  <nav>
     <ul>
       <a href="#login" rel="modal:open"><i class="fa fa-fw fa-user"></i>Login</a>
       <a href="#signup" rel="modal:open"><i class="fa fa-fw fa-user"></i>Sign Up</a>
@@ -183,9 +192,10 @@
       <a href="./view_questions.html"><i class="fa fa-fw fa-question"></i>View Question</a>
     </ul>
   </nav>
+     </div> 
 </footer>
+</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
 </html>
